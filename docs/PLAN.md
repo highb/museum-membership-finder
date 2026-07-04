@@ -1,7 +1,7 @@
 ---
 title: "Tessera — Reciprocal Museum Coverage Optimizer"
 created: 2026-07-03
-modified: 2026-07-03
+modified: 2026-07-04
 status: proposed
 area: "[[Portfolio]]"
 tags: [rust, wasm, datalog, optimization, local-first, open-source, portfolio, civic-tech]
@@ -130,9 +130,16 @@ tessera/
 - Greedy + exact B&B; objective modes (a)/(b); arbitrage report (c)
 - Constructed instances with known optima
 
-### Cycle 3 — CLI end-to-end + real PNW data slice
-- `tessera-cli` wired to core; real Oregon/PNW slice
-- Acceptance oracle: "live in Aloha, want these 8 local venues"
+### Cycle 3 — CLI end-to-end + real PNW data slice ✅
+- `tessera-cli` with clap: `--zip`, `--lat/--lon`, `--targets`, `--budget`, `--list`, `-v`
+- `tessera-core::zip` — bundled ZIP→lat/lon lookup (110 PNW entries), local-only
+- 12 PNW institutions across 6 networks, 10 membership tiers
+- Acceptance oracle (8 tests): "Aloha 97007 wants 8 PNW venues"
+  - Optimal: Tacoma Art Museum Household ($95) + OMSI Explorer ($130) = $225
+  - Covers 6/8 targets — key insight: Tacoma-based NARM clears Lan Su's 15-mi flag
+    (OMSI-based NARM cannot, being ~1.5 mi away)
+  - Uncoverable: Oregon Coast Aquarium (ASTC <90 mi), Woodland Park Zoo (AZA discount only)
+- 59 tests total, all green
 
 ### Cycle 4 — WASM core + minimal web UI (Leptos)
 - Core → WASM; Leptos app with ZIP input, target multiselect, results table
