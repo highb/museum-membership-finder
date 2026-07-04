@@ -47,35 +47,35 @@ fn AboutSection() -> impl IntoView {
                         <dl class="network-details">
                             <div class="net-detail">
                                 <dt><span class="net-badge net-narm">"NARM"</span></dt>
-                                <dd>"North American Reciprocal Museum Association. Members get "<strong>"free admission"</strong>" at 1,000+ museums. "<em>"No distance restrictions"</em>" \u{2014} works everywhere, including your home city."</dd>
+                                <dd><a href="https://narmassociation.org/" target="_blank" class="net-link">"North American Reciprocal Museum Association"</a>". Members get "<strong>"free admission"</strong>" at 1,000+ museums. "<em>"No distance restrictions"</em>" \u{2014} works everywhere, including your home city."</dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-astc">"ASTC"</span></dt>
-                                <dd>"Association of Science & Technology Centers. Members get "<strong>"free admission"</strong>" at 350+ science centers. "<em>"90-mile exclusion zone"</em>": the target must be more than 90 miles from both your residence and the membership-granting institution."</dd>
+                                <dd><a href="https://www.astc.org/" target="_blank" class="net-link">"Association of Science & Technology Centers"</a>". Members get "<strong>"free admission"</strong>" at 350+ science centers. "<em>"90-mile exclusion zone"</em>": the target must be more than 90 miles from both your residence and the membership-granting institution."</dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-ahs">"AHS"</span></dt>
-                                <dd>"American Horticultural Society. Members get "<strong>"free admission"</strong>" at 350+ gardens. "<em>"No distance restrictions."</em></dd>
+                                <dd><a href="https://ahsgardening.org/" target="_blank" class="net-link">"American Horticultural Society"</a>". Members get "<strong>"free admission"</strong>" at 350+ gardens. "<em>"No distance restrictions."</em></dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-roam">"ROAM"</span></dt>
-                                <dd>"Reciprocal Organization of Associated Museums. Members get "<strong>"free admission"</strong>" at participating museums. "<em>"100-mile exclusion zone"</em>": the target must be more than 100 miles from your residence or the home institution."</dd>
+                                <dd><a href="https://sites.google.com/site/roammuseums/home" target="_blank" class="net-link">"Reciprocal Organization of Associated Museums"</a>". Members get "<strong>"free admission"</strong>" at participating museums. "<em>"100-mile exclusion zone"</em>": the target must be more than 100 miles from your residence or the home institution."</dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-acm">"ACM"</span></dt>
-                                <dd>"Association of Children\u{2019}s Museums. Members get "<strong>"50% off admission"</strong>" at 200+ children\u{2019}s museums. "<em>"No distance restrictions."</em></dd>
+                                <dd><a href="https://childrensmuseums.org/" target="_blank" class="net-link">"Association of Children\u{2019}s Museums"</a>". Members get "<strong>"50% off admission"</strong>" at 200+ children\u{2019}s museums. "<em>"No distance restrictions."</em></dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-aza">"AZA"</span></dt>
-                                <dd>"Association of Zoos & Aquariums. Members get "<strong>"50% off admission"</strong>" at 200+ zoos and aquariums. "<em>"No distance restrictions."</em></dd>
+                                <dd><a href="https://www.aza.org/reciprocity" target="_blank" class="net-link">"Association of Zoos & Aquariums"</a>". Members get "<strong>"50% off admission"</strong>" at 200+ zoos and aquariums. "<em>"No distance restrictions."</em></dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-marp">"MARP"</span></dt>
-                                <dd>"Mid-Atlantic Association of Museums Reciprocal Program. Members get "<strong>"free admission"</strong>" at participating museums. "<em>"No distance restrictions."</em></dd>
+                                <dd><a href="https://sites.google.com/view/marplist" target="_blank" class="net-link">"Museum Alliance Reciprocal Program"</a>". Members get "<strong>"free admission"</strong>" at participating museums. "<em>"No distance restrictions."</em></dd>
                             </div>
                             <div class="net-detail">
                                 <dt><span class="net-badge net-time_travelers">"Time Travelers"</span></dt>
-                                <dd>"A reciprocal network for history-focused institutions. Members get "<strong>"free admission"</strong>" at participating sites. "<em>"No distance restrictions."</em></dd>
+                                <dd><a href="https://timetravelers.mohistory.org/" target="_blank" class="net-link">"Time Travelers"</a>". A reciprocal network for history-focused institutions. Members get "<strong>"free admission"</strong>" at participating sites. "<em>"No distance restrictions."</em></dd>
                             </div>
                         </dl>
                     </div>

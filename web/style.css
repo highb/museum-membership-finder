@@ -675,6 +675,16 @@ button:active { transform: scale(0.98); }
     font-weight: 500;
 }
 
+.net-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.net-link:hover {
+    text-decoration: underline;
+}
+
 /* Dark mode — about section */
 html.dark .about-toggle:hover {
     background: #2a2a2a;
