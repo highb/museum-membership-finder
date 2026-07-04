@@ -10,5 +10,6 @@
 pub mod model;
 pub mod geo;
 pub mod rules;
+pub mod solve;
 
 pub use model::*;
