@@ -147,7 +147,8 @@ tessera/
 - Optimal memberships display: cost/coverage stats, pick cards, per-target table
 - Warnings for unreachable (ASTC-excluded) and discount-only targets
 - Privacy verified: no network requests, all computation in WASM
-- Served on port 8000 via systemd (busybox httpd), accessible at tessera.exe.xyz
+- Served on port 8000 via `trunk serve` (systemd `srv.service`), accessible at tessera.exe.xyz
+- Live-reload: Trunk watches source files and auto-rebuilds WASM on save
 - No hand-written JS — Rust all the way down
 - 59 tests still green
 

@@ -17,8 +17,28 @@ See [`docs/PLAN.md`](docs/PLAN.md) for the full roadmap.
 ## Quick start
 
 ```bash
-cargo test          # 24 tests: model, geo, fixture round-trip
-cargo doc --open    # browse the API docs
+cargo test                # all tests (model, geo, optimizer, fixtures)
+cargo doc --open          # browse the API docs
+```
+
+### Development server
+
+The web UI is a [Leptos](https://leptos.dev/) WASM SPA built with
+[Trunk](https://trunkrs.dev/). To run the dev server with live-reload:
+
+```bash
+cd web
+trunk serve               # http://localhost:8000
+```
+
+Trunk watches `src/`, `style.css`, `index.html`, `../crates/tessera-core/src/`,
+and `../data/` — any change triggers a WASM rebuild and browser reload.
+
+For a one-off production build (no dev server):
+
+```bash
+cd web
+trunk build --release     # outputs to web/dist/
 ```
 
 ## Architecture
