@@ -141,9 +141,15 @@ tessera/
   - Uncoverable: Oregon Coast Aquarium (ASTC <90 mi), Woodland Park Zoo (AZA discount only)
 - 59 tests total, all green
 
-### Cycle 4 — WASM core + minimal web UI (Leptos)
-- Core → WASM; Leptos app with ZIP input, target multiselect, results table
-- Privacy property: no request carries the address
+### Cycle 4 — WASM core + Leptos web UI ✅
+- Leptos 0.7 CSR app with Trunk bundler, release build 457KB WASM
+- ZIP input (bundled centroid lookup), target multiselect, optional budget
+- Optimal memberships display: cost/coverage stats, pick cards, per-target table
+- Warnings for unreachable (ASTC-excluded) and discount-only targets
+- Privacy verified: no network requests, all computation in WASM
+- Served on port 8000 via systemd (busybox httpd), accessible at tessera.exe.xyz
+- No hand-written JS — Rust all the way down
+- 59 tests still green
 
 ### Cycle 5 — Static deploy + portfolio embed
 - GitHub Actions → Pages/CF; embeddable widget; README narrative
