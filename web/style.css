@@ -682,6 +682,15 @@ html.dark .pick {
     border-color: #3a3a3a;
 }
 
+html.dark .uncovered {
+    background: #422006;
+    color: #fef3c7;
+}
+
+html.dark .uncovered strong {
+    color: #fbbf24;
+}
+
 html.dark .arb-table td {
     border-bottom-color: #2a2a2a;
 }
