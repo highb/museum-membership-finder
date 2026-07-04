@@ -1,4 +1,5 @@
 mod add;
+mod scrape;
 mod validate;
 
 use clap::{Parser, Subcommand};
@@ -20,6 +21,8 @@ enum Cmd {
     AddMembership(add::AddMembershipArgs),
     /// Add ZIP centroids from CSV
     AddZips(add::AddZipsArgs),
+    /// Scrape network directories and merge into institutions.json
+    Scrape(scrape::ScrapeArgs),
 }
 
 fn main() {
@@ -29,6 +32,7 @@ fn main() {
         Cmd::AddInstitution(args) => add::add_institution(args),
         Cmd::AddMembership(args) => add::add_membership(args),
         Cmd::AddZips(args) => add::add_zips(args),
+        Cmd::Scrape(args) => scrape::run(args),
     };
     if let Err(e) = result {
         eprintln!("Error: {e:#}");

@@ -1,16 +1,205 @@
 [
   {
-    "id": "omsi",
-    "name": "Oregon Museum of Science and Industry",
-    "city": "Portland",
+    "id": "albany-regional-museum",
+    "name": "Albany Regional Museum",
+    "city": "Albany",
     "region": "OR",
     "country": "US",
-    "location": { "lat": 45.5085, "lon": -122.6665 },
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
     "participates": [
-      { "network": "astc", "special_exhibit_restricted": true },
-      { "network": "narm", "special_exhibit_restricted": false }
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
     ],
-    "provenance": "OMSI website + ASTC directory, retrieved 2026-06"
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "schneider-museum-of-art",
+    "name": "Schneider Museum of Art",
+    "city": "Ashland",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "scienceworks-hands-on-museum",
+    "name": "ScienceWorks Hands-On Museum",
+    "city": "Ashland",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/or, 2026-07"
+  },
+  {
+    "id": "crossroads-carnegie-art-center",
+    "name": "Crossroads Carnegie Art Center",
+    "city": "Baker City",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "coos-history-museum-maritime-collection",
+    "name": "Coos History Museum & Maritime Collection",
+    "city": "Coos Bay",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "the-arts-center",
+    "name": "The Arts Center",
+    "city": "Corvallis",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "eugene-science-center",
+    "name": "Eugene Science Center",
+    "city": "Eugene",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/or, 2026-07"
+  },
+  {
+    "id": "jordan-schnitzer-museum-of-art-university-of-oregon",
+    "name": "Jordan Schnitzer Museum of Art / University of Oregon",
+    "city": "Eugene",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "shelton-mcmurphey-johnson-house",
+    "name": "Shelton McMurphey Johnson House",
+    "city": "Eugene",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "university-of-oregon-museum-of-natural-and-cultural-history",
+    "name": "University of Oregon Museum of Natural and Cultural History",
+    "city": "Eugene",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      },
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "evergreen-aviation-space-museum",
+    "name": "Evergreen Aviation & Space Museum",
+    "city": "McMinnville",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/or, 2026-07"
   },
   {
     "id": "oregon-coast-aquarium",
@@ -18,11 +207,89 @@
     "city": "Newport",
     "region": "OR",
     "country": "US",
-    "location": { "lat": 44.6368, "lon": -124.0534 },
+    "location": {
+      "lat": 44.6368,
+      "lon": -124.0534
+    },
     "participates": [
-      { "network": "astc", "special_exhibit_restricted": false }
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
     ],
     "provenance": "ASTC directory, retrieved 2026-06"
+  },
+  {
+    "id": "oregon-coast-council-for-the-arts",
+    "name": "Oregon Coast Council for the Arts",
+    "city": "Newport",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 44.6368,
+      "lon": -124.0534
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "four-rivers-cultural-center-museum",
+    "name": "Four Rivers Cultural Center & Museum",
+    "city": "Ontario",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "tamastslikt-cultural-institute",
+    "name": "Tamastslikt Cultural Institute",
+    "city": "Pendleton",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "benton-county-historical-society",
+    "name": "Benton County Historical Society",
+    "city": "Philomath",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
   },
   {
     "id": "lan-su-chinese-garden",
@@ -30,7 +297,10 @@
     "city": "Portland",
     "region": "OR",
     "country": "US",
-    "location": { "lat": 45.5226, "lon": -122.6728 },
+    "location": {
+      "lat": 45.5226,
+      "lon": -122.6728
+    },
     "participates": [
       {
         "network": "narm",
@@ -40,9 +310,56 @@
         },
         "special_exhibit_restricted": false
       },
-      { "network": "ahs", "special_exhibit_restricted": false }
+      {
+        "network": "ahs",
+        "special_exhibit_restricted": false
+      }
     ],
     "provenance": "NARM directory + Lan Su website, retrieved 2026-06"
+  },
+  {
+    "id": "omsi",
+    "name": "Oregon Museum of Science and Industry",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 45.5085,
+      "lon": -122.6665
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": true
+      },
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "OMSI website + ASTC directory, retrieved 2026-06"
+  },
+  {
+    "id": "oregon-zoo",
+    "name": "Oregon Zoo",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 45.5098,
+      "lon": -122.7162
+    },
+    "participates": [
+      {
+        "network": "aza",
+        "admission": {
+          "type": "discount",
+          "fraction": 0.5
+        },
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "AZA directory, retrieved 2026-06"
   },
   {
     "id": "portland-art-museum",
@@ -50,71 +367,17 @@
     "city": "Portland",
     "region": "OR",
     "country": "US",
-    "location": { "lat": 45.5163, "lon": -122.6836 },
+    "location": {
+      "lat": 45.5163,
+      "lon": -122.6836
+    },
     "participates": [
-      { "network": "narm", "special_exhibit_restricted": true }
+      {
+        "network": "narm",
+        "special_exhibit_restricted": true
+      }
     ],
     "provenance": "NARM directory, retrieved 2026-06"
-  },
-  {
-    "id": "seattle-art-museum",
-    "name": "Seattle Art Museum",
-    "city": "Seattle",
-    "region": "WA",
-    "country": "US",
-    "location": { "lat": 47.6073, "lon": -122.3380 },
-    "participates": [
-      { "network": "narm", "special_exhibit_restricted": true }
-    ],
-    "provenance": "NARM directory, retrieved 2026-06"
-  },
-  {
-    "id": "pacific-science-center",
-    "name": "Pacific Science Center",
-    "city": "Seattle",
-    "region": "WA",
-    "country": "US",
-    "location": { "lat": 47.6195, "lon": -122.3517 },
-    "participates": [
-      { "network": "astc", "special_exhibit_restricted": false }
-    ],
-    "provenance": "ASTC directory, retrieved 2026-06"
-  },
-  {
-    "id": "tacoma-art-museum",
-    "name": "Tacoma Art Museum",
-    "city": "Tacoma",
-    "region": "WA",
-    "country": "US",
-    "location": { "lat": 47.2451, "lon": -122.4388 },
-    "participates": [
-      { "network": "narm", "special_exhibit_restricted": false }
-    ],
-    "provenance": "NARM directory, retrieved 2026-06"
-  },
-  {
-    "id": "maryhill-museum",
-    "name": "Maryhill Museum of Art",
-    "city": "Goldendale",
-    "region": "WA",
-    "country": "US",
-    "location": { "lat": 45.6774, "lon": -120.8520 },
-    "participates": [
-      { "network": "narm", "special_exhibit_restricted": false }
-    ],
-    "provenance": "NARM directory, retrieved 2026-06"
-  },
-  {
-    "id": "childrens-museum-of-tacoma",
-    "name": "Children's Museum of Tacoma",
-    "city": "Tacoma",
-    "region": "WA",
-    "country": "US",
-    "location": { "lat": 47.2530, "lon": -122.4424 },
-    "participates": [
-      { "network": "acm", "special_exhibit_restricted": false }
-    ],
-    "provenance": "ACM directory, retrieved 2026-06"
   },
   {
     "id": "portland-childrens-museum",
@@ -122,11 +385,809 @@
     "city": "Portland",
     "region": "OR",
     "country": "US",
-    "location": { "lat": 45.5112, "lon": -122.7178 },
+    "location": {
+      "lat": 45.5112,
+      "lon": -122.7178
+    },
     "participates": [
-      { "network": "acm", "special_exhibit_restricted": false }
+      {
+        "network": "acm",
+        "special_exhibit_restricted": false
+      }
     ],
     "provenance": "ACM directory, retrieved 2026-06"
+  },
+  {
+    "id": "deepwood-museum-gardens",
+    "name": "Deepwood Museum & Gardens",
+    "city": "Salem",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "gilbert-house-children-s-museum",
+    "name": "Gilbert House Children’s Museum",
+    "city": "Salem",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/or, 2026-07"
+  },
+  {
+    "id": "hallie-ford-museum-of-art-willamette-university",
+    "name": "Hallie Ford Museum of Art / Willamette University",
+    "city": "Salem",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "sunriver-naure-center",
+    "name": "Sunriver Naure Center",
+    "city": "Sunriver",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/or, 2026-07"
+  },
+  {
+    "id": "the-museum-at-warm-springs",
+    "name": "The Museum at Warm Springs",
+    "city": "Warm Springs",
+    "region": "OR",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/or, 2026-07"
+  },
+  {
+    "id": "bainbridge-island-historical-museum",
+    "name": "Bainbridge Island Historical Museum",
+    "city": "Bainbridge Island",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "bainbridge-island-museum-of-art",
+    "name": "Bainbridge Island Museum of Art",
+    "city": "Bainbridge Island",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "bellevue-arts-museum",
+    "name": "Bellevue Arts Museum",
+    "city": "Bellevue",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "kidsquest-children-s-museum",
+    "name": "KidsQuest Children’s Museum",
+    "city": "Bellevue",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/wa, 2026-07"
+  },
+  {
+    "id": "whatcom-museum",
+    "name": "Whatcom Museum",
+    "city": "Bellingham",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "kitsap-history-museum",
+    "name": "Kitsap History Museum",
+    "city": "Bremerton",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "coupeville-arts-center",
+    "name": "Coupeville Arts Center",
+    "city": "Coupeville",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "cascadia-art-museum",
+    "name": "Cascadia Art Museum",
+    "city": "Edmonds",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "gallery-one-visual-arts-center",
+    "name": "Gallery One Visual Arts Center",
+    "city": "Ellensburg",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "imagine-children-s-museum",
+    "name": "Imagine Children’s Museum",
+    "city": "Everett",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/wa, 2026-07"
+  },
+  {
+    "id": "schack-art-center",
+    "name": "Schack Art Center",
+    "city": "Everett",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "pacific-bonsai-museum",
+    "name": "Pacific Bonsai Museum",
+    "city": "Federal Way",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "san-juan-islands-museum-of-art-ima",
+    "name": "San Juan Islands Museum of Art (IMA)",
+    "city": "Friday Harbor",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "harbor-history-museum",
+    "name": "Harbor History Museum",
+    "city": "Gig Harbor",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "maryhill-museum",
+    "name": "Maryhill Museum of Art",
+    "city": "Goldendale",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 45.6774,
+      "lon": -120.852
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "columbia-pacific-heritage-museum",
+    "name": "Columbia Pacific Heritage Museum",
+    "city": "Ilwaco",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "cowlitz-county-historical-museum",
+    "name": "Cowlitz County Historical Museum",
+    "city": "Kelso",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "museum-of-northwest-art",
+    "name": "Museum of Northwest Art",
+    "city": "La Conner",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "pacific-northwest-quilt-fiber-arts-museum",
+    "name": "Pacific Northwest Quilt & Fiber Arts Museum",
+    "city": "La Conner",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "jansen-art-center",
+    "name": "Jansen Art Center",
+    "city": "Lynden",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "port-angeles-fine-arts-center",
+    "name": "Port Angeles Fine Arts Center",
+    "city": "Port Angeles",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "sidney-museum-and-arts-association",
+    "name": "Sidney Museum and Arts Association",
+    "city": "Port Orchard",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "jefferson-museum-of-art-history",
+    "name": "Jefferson Museum of Art & History",
+    "city": "Port Townsend",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "jordan-schnitzer-museum-of-art-wsu",
+    "name": "Jordan Schnitzer Museum of Art WSU",
+    "city": "Pullman",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "palouse-discovery-science-center",
+    "name": "Palouse Discovery Science Center",
+    "city": "Pullman",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/wa, 2026-07"
+  },
+  {
+    "id": "reach-museum",
+    "name": "REACH Museum",
+    "city": "Richland",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "the-reach",
+    "name": "The REACH",
+    "city": "Richland",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/wa, 2026-07"
+  },
+  {
+    "id": "burke-museum-of-natural-history-and-culture",
+    "name": "Burke Museum of Natural History and Culture",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "dunn-gardens",
+    "name": "Dunn Gardens",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "frye-art-museum",
+    "name": "Frye Art Museum",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "henry-art-gallery",
+    "name": "Henry Art Gallery",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "holocaust-center-for-humanity",
+    "name": "Holocaust Center for Humanity",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "museum-of-history-and-industry-mohai",
+    "name": "Museum of History and Industry (MOHAI)",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "nordic-museum",
+    "name": "Nordic Museum",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "northwest-african-american-museum",
+    "name": "Northwest African American Museum",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "pacific-science-center",
+    "name": "Pacific Science Center",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6195,
+      "lon": -122.3517
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "ASTC directory, retrieved 2026-06"
+  },
+  {
+    "id": "seattle-art-museum",
+    "name": "Seattle Art Museum",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": true
+      }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "the-museum-of-flight",
+    "name": "The Museum of Flight",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/astc/wa, 2026-07"
+  },
+  {
+    "id": "wing-luke-museum-of-the-asian-pacific-american-experience",
+    "name": "Wing Luke Museum of the Asian Pacific American Experience",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.6073,
+      "lon": -122.338
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
   },
   {
     "id": "woodland-park-zoo",
@@ -134,11 +1195,17 @@
     "city": "Seattle",
     "region": "WA",
     "country": "US",
-    "location": { "lat": 47.6685, "lon": -122.3508 },
+    "location": {
+      "lat": 47.6685,
+      "lon": -122.3508
+    },
     "participates": [
       {
         "network": "aza",
-        "admission": { "type": "discount", "fraction": 0.5 },
+        "admission": {
+          "type": "discount",
+          "fraction": 0.5
+        },
         "exclusion": {
           "home_institution_radius_mi": 50.0,
           "both_must_clear": false
@@ -149,19 +1216,263 @@
     "provenance": "AZA directory, retrieved 2026-06"
   },
   {
-    "id": "oregon-zoo",
-    "name": "Oregon Zoo",
-    "city": "Portland",
-    "region": "OR",
+    "id": "mobius-science-center",
+    "name": "Mobius Science Center",
+    "city": "Spokane",
+    "region": "WA",
     "country": "US",
-    "location": { "lat": 45.5098, "lon": -122.7162 },
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
     "participates": [
       {
-        "network": "aza",
-        "admission": { "type": "discount", "fraction": 0.5 },
+        "network": "astc",
         "special_exhibit_restricted": false
       }
     ],
-    "provenance": "AZA directory, retrieved 2026-06"
+    "provenance": "Scraped from spgfan.com/astc/wa, 2026-07"
+  },
+  {
+    "id": "northwest-museum-of-arts-culture",
+    "name": "Northwest Museum of Arts & Culture",
+    "city": "Spokane",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "columbia-gorge-interpretive-center",
+    "name": "Columbia Gorge Interpretive Center",
+    "city": "Stevenson",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "childrens-museum-of-tacoma",
+    "name": "Children's Museum of Tacoma",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.253,
+      "lon": -122.4424
+    },
+    "participates": [
+      {
+        "network": "acm",
+        "special_exhibit_restricted": false
+      },
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "ACM directory, retrieved 2026-06"
+  },
+  {
+    "id": "foss-waterway-seaport",
+    "name": "Foss Waterway Seaport",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.2451,
+      "lon": -122.4388
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "lemay-america-s-car-museum",
+    "name": "LeMay – America’s Car Museum",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.2451,
+      "lon": -122.4388
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "museum-of-glass",
+    "name": "Museum of Glass",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.2451,
+      "lon": -122.4388
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "tacoma-art-museum",
+    "name": "Tacoma Art Museum",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 47.2451,
+      "lon": -122.4388
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "confluence-gallery-and-art-center",
+    "name": "Confluence Gallery and Art Center",
+    "city": "Twisp",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "clark-county-historical-museum",
+    "name": "Clark County Historical Museum",
+    "city": "Vancouver",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "vashon-maury-island-heritage-association",
+    "name": "Vashon-Maury Island Heritage Association",
+    "city": "Vashon",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "kirkman-house-museum",
+    "name": "Kirkman House Museum",
+    "city": "Walla Walla",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "wenatchee-valley-museum-and-cultural-center",
+    "name": "Wenatchee Valley Museum and Cultural Center",
+    "city": "Wenatchee",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      },
+      {
+        "network": "astc",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
+  },
+  {
+    "id": "yakima-valley-museum-historical-society",
+    "name": "Yakima Valley Museum & Historical Society",
+    "city": "Yakima",
+    "region": "WA",
+    "country": "US",
+    "location": {
+      "lat": 0.0,
+      "lon": 0.0
+    },
+    "participates": [
+      {
+        "network": "narm",
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "Scraped from spgfan.com/narm/wa, 2026-07"
   }
 ]
