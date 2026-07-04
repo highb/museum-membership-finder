@@ -10,6 +10,7 @@
       "lon": -123.1057
     },
     "website": "https://www.armuseum.com/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -29,6 +30,7 @@
       "lon": -122.7063
     },
     "website": "https://sma.sou.edu/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -48,6 +50,7 @@
       "lon": -122.7095
     },
     "website": "https://scienceworksmuseum.org/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -67,6 +70,7 @@
       "lon": -117.8342
     },
     "website": "https://www.crossroads-arts.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -86,6 +90,7 @@
       "lon": -124.2179
     },
     "website": "https://cooshistory.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -105,6 +110,7 @@
       "lon": -123.262
     },
     "website": "https://theartscenter.net/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -124,6 +130,7 @@
       "lon": -123.0868
     },
     "website": "https://eugenesciencecenter.org/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -143,6 +150,7 @@
       "lon": -123.0782
     },
     "website": "https://jsma.uoregon.edu/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -162,6 +170,7 @@
       "lon": -123.0909
     },
     "website": "https://smjhouse.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -181,6 +190,7 @@
       "lon": -123.0773
     },
     "website": "https://mnch.uoregon.edu/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "narm",
@@ -204,6 +214,7 @@
       "lon": -123.1439
     },
     "website": "https://www.evergreenmuseum.org/",
+    "institution_type": "air_and_space",
     "participates": [
       {
         "network": "astc",
@@ -229,7 +240,8 @@
       }
     ],
     "provenance": "ASTC directory, retrieved 2026-06",
-    "website": "https://www.aquarium.org/"
+    "website": "https://www.aquarium.org/",
+    "institution_type": "zoo"
   },
   {
     "id": "oregon-coast-council-for-the-arts",
@@ -242,6 +254,7 @@
       "lon": -124.0534
     },
     "website": "https://coastarts.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -261,6 +274,7 @@
       "lon": -116.9629
     },
     "website": "https://4rcc.com/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -280,6 +294,7 @@
       "lon": -118.5889
     },
     "website": "https://www.tamastslikt.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -299,6 +314,7 @@
       "lon": -123.3664
     },
     "website": "https://bentoncountymuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -332,7 +348,8 @@
       }
     ],
     "provenance": "NARM directory + Lan Su website, retrieved 2026-06",
-    "website": "https://lansugarden.org/"
+    "website": "https://lansugarden.org/",
+    "institution_type": "zoo"
   },
   {
     "id": "omsi",
@@ -345,6 +362,7 @@
       "lon": -122.6665
     },
     "website": "https://omsi.edu/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -378,7 +396,8 @@
       }
     ],
     "provenance": "AZA directory, retrieved 2026-06",
-    "website": "https://www.oregonzoo.org/"
+    "website": "https://www.oregonzoo.org/",
+    "institution_type": "zoo"
   },
   {
     "id": "portland-art-museum",
@@ -397,7 +416,8 @@
       }
     ],
     "provenance": "NARM directory, retrieved 2026-06",
-    "website": "https://portlandartmuseum.org/"
+    "website": "https://portlandartmuseum.org/",
+    "institution_type": "art"
   },
   {
     "id": "portland-childrens-museum",
@@ -416,7 +436,8 @@
       }
     ],
     "provenance": "ACM directory, retrieved 2026-06",
-    "website": "https://www.portlandcm.org/"
+    "website": "https://www.portlandcm.org/",
+    "institution_type": "children"
   },
   {
     "id": "deepwood-museum-gardens",
@@ -429,6 +450,7 @@
       "lon": -123.027
     },
     "website": "https://deepwoodmuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -439,7 +461,7 @@
   },
   {
     "id": "gilbert-house-children-s-museum",
-    "name": "Gilbert House Children\u2019s Museum",
+    "name": "Gilbert House Children’s Museum",
     "city": "Salem",
     "region": "OR",
     "country": "US",
@@ -448,6 +470,7 @@
       "lon": -123.0287
     },
     "website": "https://acgilbert.org/",
+    "institution_type": "children",
     "participates": [
       {
         "network": "astc",
@@ -467,6 +490,7 @@
       "lon": -123.0351
     },
     "website": "https://willamette.edu/arts/hfma/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -486,6 +510,7 @@
       "lon": -121.439
     },
     "website": "https://snco.org/",
+    "institution_type": "zoo",
     "participates": [
       {
         "network": "astc",
@@ -505,6 +530,7 @@
       "lon": -121.2682
     },
     "website": "https://www.museumatwarmsprings.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -524,6 +550,7 @@
       "lon": -122.5209
     },
     "website": "https://bainbridgehistory.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -543,6 +570,7 @@
       "lon": -122.5232
     },
     "website": "https://www.biartmuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -562,6 +590,7 @@
       "lon": -122.1967
     },
     "website": "https://www.bellevuearts.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -572,7 +601,7 @@
   },
   {
     "id": "kidsquest-children-s-museum",
-    "name": "KidsQuest Children\u2019s Museum",
+    "name": "KidsQuest Children’s Museum",
     "city": "Bellevue",
     "region": "WA",
     "country": "US",
@@ -581,6 +610,7 @@
       "lon": -122.2009
     },
     "website": "https://www.kidsquestmuseum.org/",
+    "institution_type": "children",
     "participates": [
       {
         "network": "astc",
@@ -600,6 +630,7 @@
       "lon": -122.4856
     },
     "website": "https://www.whatcommuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -619,6 +650,7 @@
       "lon": -122.6264
     },
     "website": "https://kitsapmuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -638,6 +670,7 @@
       "lon": -122.6838
     },
     "website": "https://pacificnorthwestartschool.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -657,6 +690,7 @@
       "lon": -122.3774
     },
     "website": "https://www.cascadiaartmuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -676,6 +710,7 @@
       "lon": -120.5478
     },
     "website": "http://www.gallery-one.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -686,7 +721,7 @@
   },
   {
     "id": "imagine-children-s-museum",
-    "name": "Imagine Children\u2019s Museum",
+    "name": "Imagine Children’s Museum",
     "city": "Everett",
     "region": "WA",
     "country": "US",
@@ -695,6 +730,7 @@
       "lon": -122.1976
     },
     "website": "https://www.imaginecm.org/",
+    "institution_type": "children",
     "participates": [
       {
         "network": "astc",
@@ -714,6 +750,7 @@
       "lon": -122.2073
     },
     "website": "https://www.schack.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -733,6 +770,7 @@
       "lon": -122.3115
     },
     "website": "https://pacificbonsaimuseum.org/",
+    "institution_type": "zoo",
     "participates": [
       {
         "network": "narm",
@@ -752,6 +790,7 @@
       "lon": -123.0124
     },
     "website": "https://sjima.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -771,6 +810,7 @@
       "lon": -122.5806
     },
     "website": "https://harborhistorymuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -790,6 +830,7 @@
       "lon": -120.852
     },
     "website": "https://www.maryhillmuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -809,6 +850,7 @@
       "lon": -124.0402
     },
     "website": "https://columbiapacificheritagemuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -828,6 +870,7 @@
       "lon": -122.9084
     },
     "website": "http://www.co.cowlitz.wa.us/218/Museum",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -847,6 +890,7 @@
       "lon": -122.4981
     },
     "website": "http://www.monamuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -866,6 +910,7 @@
       "lon": -122.4972
     },
     "website": "https://www.qfamuseum.org/",
+    "institution_type": "specialty",
     "participates": [
       {
         "network": "narm",
@@ -885,6 +930,7 @@
       "lon": -122.4542
     },
     "website": "https://www.jansenartcenter.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -904,6 +950,7 @@
       "lon": -123.4474
     },
     "website": "http://www.pafac.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -923,6 +970,7 @@
       "lon": -122.6358
     },
     "website": "https://www.sidneymuseumandarts.com/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -942,6 +990,7 @@
       "lon": -122.7604
     },
     "website": "https://www.jchsmuseum.org/Sites/JeffersonMuseumofArt&History.html",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -961,6 +1010,7 @@
       "lon": -117.1729
     },
     "website": "https://museum.wsu.edu/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -980,6 +1030,7 @@
       "lon": -117.1808
     },
     "website": "https://www.palousescience.net/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -999,6 +1050,7 @@
       "lon": -119.2839
     },
     "website": "https://visitthereach.us/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1018,6 +1070,7 @@
       "lon": -119.2839
     },
     "website": "https://www.visitthereach.org/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -1037,6 +1090,7 @@
       "lon": -122.3143
     },
     "website": "https://www.burkemuseum.org/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "narm",
@@ -1056,6 +1110,7 @@
       "lon": -122.3545
     },
     "website": "https://dunngardens.org/",
+    "institution_type": "zoo",
     "participates": [
       {
         "network": "narm",
@@ -1075,6 +1130,7 @@
       "lon": -122.3246
     },
     "website": "https://fryemuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -1094,6 +1150,7 @@
       "lon": -122.3119
     },
     "website": "https://henryart.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -1113,6 +1170,7 @@
       "lon": -122.3298
     },
     "website": "https://www.holocaustcenterseattle.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1132,6 +1190,7 @@
       "lon": -122.3364
     },
     "website": "https://mohai.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1151,6 +1210,7 @@
       "lon": -122.3842
     },
     "website": "https://www.nordicmuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1170,6 +1230,7 @@
       "lon": -122.298
     },
     "website": "https://www.naamnw.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1189,6 +1250,7 @@
       "lon": -122.3517
     },
     "website": "https://www.pacificsciencecenter.org/",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -1214,7 +1276,8 @@
       }
     ],
     "provenance": "NARM directory, retrieved 2026-06",
-    "website": "https://www.seattleartmuseum.org/"
+    "website": "https://www.seattleartmuseum.org/",
+    "institution_type": "art"
   },
   {
     "id": "the-museum-of-flight",
@@ -1227,6 +1290,7 @@
       "lon": -122.2964
     },
     "website": "https://www.museumofflight.org/",
+    "institution_type": "air_and_space",
     "participates": [
       {
         "network": "astc",
@@ -1246,6 +1310,7 @@
       "lon": -122.3223
     },
     "website": "https://www.wingluke.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1279,7 +1344,8 @@
       }
     ],
     "provenance": "AZA directory, retrieved 2026-06",
-    "website": "https://www.zoo.org/"
+    "website": "https://www.zoo.org/",
+    "institution_type": "zoo"
   },
   {
     "id": "mobius-science-center",
@@ -1292,6 +1358,7 @@
       "lon": -117.4246
     },
     "website": "http://mobiusspokane.org/the-bee-girl/mobius-childrens-museum",
+    "institution_type": "science",
     "participates": [
       {
         "network": "astc",
@@ -1311,6 +1378,7 @@
       "lon": -117.405
     },
     "website": "https://www.northwestmuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1330,6 +1398,7 @@
       "lon": -121.8995
     },
     "website": "http://www.columbiagorge.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1349,6 +1418,7 @@
       "lon": -122.4424
     },
     "website": "https://www.playtacoma.org/",
+    "institution_type": "children",
     "participates": [
       {
         "network": "acm",
@@ -1372,6 +1442,7 @@
       "lon": -122.4388
     },
     "website": "https://fosswaterwayseaport.org/",
+    "institution_type": "specialty",
     "participates": [
       {
         "network": "narm",
@@ -1382,7 +1453,7 @@
   },
   {
     "id": "lemay-america-s-car-museum",
-    "name": "LeMay \u2013 America\u2019s Car Museum",
+    "name": "LeMay – America’s Car Museum",
     "city": "Tacoma",
     "region": "WA",
     "country": "US",
@@ -1391,6 +1462,7 @@
       "lon": -122.4388
     },
     "website": "https://www.americascarmuseum.org/",
+    "institution_type": "specialty",
     "participates": [
       {
         "network": "narm",
@@ -1410,6 +1482,7 @@
       "lon": -122.4388
     },
     "website": "https://www.museumofglass.org/",
+    "institution_type": "specialty",
     "participates": [
       {
         "network": "narm",
@@ -1429,6 +1502,7 @@
       "lon": -122.4388
     },
     "website": "https://www.tacomaartmuseum.org/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -1448,6 +1522,7 @@
       "lon": -120.1209
     },
     "website": "https://confluencegallery.com/",
+    "institution_type": "art",
     "participates": [
       {
         "network": "narm",
@@ -1467,6 +1542,7 @@
       "lon": -122.6615
     },
     "website": "http://www.cchmuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1486,6 +1562,7 @@
       "lon": -122.4602
     },
     "website": "https://vashonheritagemuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1505,6 +1582,7 @@
       "lon": -118.343
     },
     "website": "https://www.kirkmanhousemuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1524,6 +1602,7 @@
       "lon": -120.3103
     },
     "website": "https://www.wenatcheevalleymuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",
@@ -1547,6 +1626,7 @@
       "lon": -120.5337
     },
     "website": "https://www.yvmuseum.org/",
+    "institution_type": "history",
     "participates": [
       {
         "network": "narm",

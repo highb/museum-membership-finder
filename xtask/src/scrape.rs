@@ -534,6 +534,7 @@ pub fn run(args: ScrapeArgs) -> Result<()> {
                     country: "US".to_string(),
                     location,
                     website: entry.website.clone(),
+                    institution_type: InstitutionType::Specialty, // default; classify manually
                     participates: vec![Participation {
                         network,
                         admission: None,
@@ -682,6 +683,7 @@ mod tests {
             country: "US".into(),
             location: LatLon::new(0.0, 0.0),
             website: None,
+            institution_type: InstitutionType::Specialty,
             participates: vec![],
             provenance: "test".into(),
         }];
@@ -705,6 +707,7 @@ mod tests {
             country: "US".into(),
             location: LatLon::new(0.0, 0.0),
             website: None,
+            institution_type: InstitutionType::Specialty,
             participates: vec![],
             provenance: "test".into(),
         }];
@@ -728,6 +731,7 @@ mod tests {
             country: "US".into(),
             location: LatLon::new(0.0, 0.0),
             website: None,
+            institution_type: InstitutionType::Specialty,
             participates: vec![],
             provenance: "test".into(),
         }];

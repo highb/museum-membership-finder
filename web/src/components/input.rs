@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use crate::components::map::{MapView, MapInstitution};
+use tessera_core::model::InstitutionType;
 
 /// Data for a single institution row.
 #[derive(Clone, Debug)]
@@ -10,14 +11,15 @@ pub struct InstRow {
     pub region: String,
     pub networks: Vec<String>,
     pub website: Option<String>,
+    pub institution_type: InstitutionType,
     pub lat: f64,
     pub lon: f64,
 }
 
 #[component]
 pub fn InputPanel(
-    /// (id, name, city+region, networks, website, lat, lon)
-    institutions: Vec<(String, String, String, String, Option<String>, f64, f64)>,
+    /// (id, name, city+region, networks, website, institution_type, lat, lon)
+    institutions: Vec<(String, String, String, String, Option<String>, InstitutionType, f64, f64)>,
     on_solve: impl Fn(String, Vec<String>, Option<f64>) + 'static + Clone,
 ) -> impl IntoView {
     let (zip, set_zip) = signal("97007".to_string());
@@ -26,7 +28,7 @@ pub fn InputPanel(
     // Parse institution tuples into structured rows
     let rows: Vec<InstRow> = institutions
         .iter()
-        .map(|(id, name, city_region, nets, website, lat, lon)| {
+        .map(|(id, name, city_region, nets, website, inst_type, lat, lon)| {
             let parts: Vec<&str> = city_region.splitn(2, ", ").collect();
             let city = parts.first().unwrap_or(&"").to_string();
             let region = parts.get(1).unwrap_or(&"").to_string();
@@ -35,7 +37,7 @@ pub fn InputPanel(
                 .filter(|s| !s.is_empty())
                 .map(|s| s.to_string())
                 .collect();
-            InstRow { id: id.clone(), name: name.clone(), city, region, networks, website: website.clone(), lat: *lat, lon: *lon }
+            InstRow { id: id.clone(), name: name.clone(), city, region, networks, website: website.clone(), institution_type: *inst_type, lat: *lat, lon: *lon }
         })
         .collect();
 
@@ -58,6 +60,7 @@ pub fn InputPanel(
     let (search_query, set_search_query) = signal(String::new());
     let (active_region, set_active_region) = signal::<Option<String>>(None);
     let (active_network, set_active_network) = signal::<Option<String>>(None);
+    let (active_type, set_active_type) = signal::<Option<InstitutionType>>(None);
     let (view_mode, set_view_mode) = signal::<&str>("list"); // "list" or "map"
 
     let rows = StoredValue::new(rows);
@@ -69,6 +72,7 @@ pub fn InputPanel(
         let query = search_query.get().to_lowercase();
         let region_filter = active_region.get();
         let network_filter = active_network.get();
+        let type_filter = active_type.get();
 
         rows.with_value(|rows| {
             rows.iter()
@@ -91,6 +95,12 @@ pub fn InputPanel(
                     if let Some(ref n) = network_filter {
                         let n_upper = n.to_uppercase();
                         if !row.networks.iter().any(|net| net.to_uppercase() == n_upper) {
+                            return false;
+                        }
+                    }
+                    // Type filter
+                    if let Some(t) = type_filter {
+                        if row.institution_type != t {
                             return false;
                         }
                     }
@@ -304,6 +314,30 @@ pub fn InputPanel(
                         }).collect::<Vec<_>>()
                     })}
                 </div>
+                <div class="filter-group">
+                    <span class="filter-label">"Type:"</span>
+                    <button
+                        class=move || if active_type.get().is_none() { "filter-badge active" } else { "filter-badge" }
+                        on:click=move |_| set_active_type.set(None)
+                    >"All"</button>
+                    {InstitutionType::ALL.iter().map(|t| {
+                        let t1 = *t;
+                        let t2 = *t;
+                        let label = t.short_label();
+                        view! {
+                            <button
+                                class=move || {
+                                    if active_type.get() == Some(t1) {
+                                        "filter-badge active"
+                                    } else {
+                                        "filter-badge"
+                                    }
+                                }
+                                on:click=move |_| set_active_type.set(Some(t2))
+                            >{label}</button>
+                        }
+                    }).collect::<Vec<_>>()}
+                </div>
             </div>
 
             // Selection controls
@@ -371,6 +405,8 @@ pub fn InputPanel(
                                                                 let name = row.name.clone();
                                                                 let nets = row.networks.join(", ");
                                                                 let website = row.website.clone();
+                                                                let type_cls = format!("type-badge type-{}", row.institution_type.css_class());
+                                                                let type_label = row.institution_type.short_label();
                                                                 view! {
                                                                     <label class="target-item">
                                                                         <input
@@ -395,6 +431,7 @@ pub fn InputPanel(
                                                                                         title="Visit website"
                                                                                     >"\u{1f517}"</a>
                                                                                 })}
+                                                                                <span class=type_cls>{type_label}</span>
                                                                                 <span class="net-badges">
                                                                                     {nets.split(", ").map(|n| {
                                                                                         let cls = format!("net-badge net-{}", n.to_lowercase());

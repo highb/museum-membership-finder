@@ -382,6 +382,25 @@ button:active { transform: scale(0.98); }
 .net-marp { background: #ccfbf1; color: #115e59; }
 .net-time_travelers { background: #fee2e2; color: #991b1b; }
 
+/* Institution type badges */
+.type-badge {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.type-art           { background: #fef3c7; color: #92400e; }
+.type-science       { background: #dbeafe; color: #1e40af; }
+.type-history       { background: #e0e7ff; color: #3730a3; }
+.type-children      { background: #fce7f3; color: #9d174d; }
+.type-zoo           { background: #dcfce7; color: #166534; }
+.type-air-and-space { background: #f3e8ff; color: #6b21a8; }
+.type-specialty     { background: #ccfbf1; color: #115e59; }
+
 .empty-state {
     padding: 2rem;
     text-align: center;

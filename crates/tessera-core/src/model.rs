@@ -179,6 +179,76 @@ impl LatLon {
 }
 
 // ---------------------------------------------------------------------------
+// InstitutionType
+// ---------------------------------------------------------------------------
+
+/// The primary category of an institution.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum InstitutionType {
+    Art,
+    Science,
+    History,
+    Children,
+    Zoo,
+    AirAndSpace,
+    Specialty,
+}
+
+impl fmt::Display for InstitutionType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            InstitutionType::Art => write!(f, "Art"),
+            InstitutionType::Science => write!(f, "Science"),
+            InstitutionType::History => write!(f, "History"),
+            InstitutionType::Children => write!(f, "Children's"),
+            InstitutionType::Zoo => write!(f, "Zoo & Garden"),
+            InstitutionType::AirAndSpace => write!(f, "Air & Space"),
+            InstitutionType::Specialty => write!(f, "Specialty"),
+        }
+    }
+}
+
+impl InstitutionType {
+    /// All known institution types, in display order.
+    pub const ALL: &[InstitutionType] = &[
+        InstitutionType::Art,
+        InstitutionType::Science,
+        InstitutionType::History,
+        InstitutionType::Children,
+        InstitutionType::Zoo,
+        InstitutionType::AirAndSpace,
+        InstitutionType::Specialty,
+    ];
+
+    /// Short label for filter badges.
+    pub fn short_label(&self) -> &'static str {
+        match self {
+            InstitutionType::Art => "Art",
+            InstitutionType::Science => "Science",
+            InstitutionType::History => "History",
+            InstitutionType::Children => "Children's",
+            InstitutionType::Zoo => "Zoo & Garden",
+            InstitutionType::AirAndSpace => "Air & Space",
+            InstitutionType::Specialty => "Specialty",
+        }
+    }
+
+    /// CSS-friendly slug.
+    pub fn css_class(&self) -> &'static str {
+        match self {
+            InstitutionType::Art => "art",
+            InstitutionType::Science => "science",
+            InstitutionType::History => "history",
+            InstitutionType::Children => "children",
+            InstitutionType::Zoo => "zoo",
+            InstitutionType::AirAndSpace => "air-and-space",
+            InstitutionType::Specialty => "specialty",
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Institution
 // ---------------------------------------------------------------------------
 
@@ -202,6 +272,8 @@ pub struct Institution {
     /// Institution website URL.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub website: Option<String>,
+    /// Primary category (art, science, history, etc.).
+    pub institution_type: InstitutionType,
     /// Networks this institution participates in.
     pub participates: Vec<Participation>,
     /// Attribution: source name + retrieval date.

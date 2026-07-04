@@ -132,6 +132,7 @@ mod tests {
             country: "US".into(),
             location: LatLon::new(45.5, -122.6),
             website: None,
+            institution_type: InstitutionType::Specialty,
             participates: vec![Participation {
                 network: Network::Astc,
                 admission: None,

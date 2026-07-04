@@ -87,13 +87,13 @@ pub fn App() -> impl IntoView {
     let dataset = data::load_dataset();
     let zips = data::load_zips();
 
-    // All institutions for target selection (now with lat/lon)
-    let institutions: Vec<(String, String, String, String, Option<String>, f64, f64)> = dataset
+    // All institutions for target selection (now with lat/lon + type)
+    let institutions: Vec<(String, String, String, String, Option<String>, InstitutionType, f64, f64)> = dataset
         .institutions
         .iter()
         .map(|i| {
             let nets: Vec<String> = i.participates.iter().map(|p| p.network.to_string()).collect();
-            (i.id.clone(), i.name.clone(), format!("{}, {}", i.city, i.region), nets.join(", "), i.website.clone(), i.location.lat, i.location.lon)
+            (i.id.clone(), i.name.clone(), format!("{}, {}", i.city, i.region), nets.join(", "), i.website.clone(), i.institution_type, i.location.lat, i.location.lon)
         })
         .collect();
 
