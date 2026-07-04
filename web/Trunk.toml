@@ -1,0 +1,9 @@
+[serve]
+address = "0.0.0.0"
+port = 8000
+
+[watch]
+watch = ["src", "style.css", "index.html", "../crates/tessera-core/src", "../data"]
+
+[build]
+target = "index.html"

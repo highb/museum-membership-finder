@@ -4,3 +4,6 @@
 *~
 .DS_Store
 Thumbs.db
+
+# Trunk build output
+web/dist/
