@@ -14,10 +14,12 @@ membership data. It is *not* a copy of any association's compiled member list.
 | AHS directory (ahsgardening.org) | Network member list | 2026-06 | Garden names, 90-mi flag |
 | Individual institution websites | Membership pricing | 2026-06 | Tier names, prices, network unlock levels |
 
-## Fixture scope
+## Dataset scope
 
-The current dataset is a **fixture** (~12 institutions, PNW region) used for
-development and testing. It is not intended to be comprehensive.
+The current dataset covers **80 institutions** in the PNW region (Oregon and
+Washington) across 5 reciprocal networks (NARM, ASTC, AHS, AZA, ACM). Data was
+scraped from spgfan.com directory pages and merged via `cargo xtask scrape` in
+July 2026.
 
 ## Freshness disclaimer
 

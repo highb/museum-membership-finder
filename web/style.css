@@ -158,47 +158,82 @@ button:active { transform: scale(0.98); }
     cursor: not-allowed;
 }
 
-/* Target checkboxes */
-.target-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 0.4rem;
+/* Search bar */
+.search-bar {
+    margin-bottom: 0.75rem;
 }
 
-.target-item {
+.search-input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--card-bg);
+    color: var(--fg);
+    font-family: var(--font);
+    transition: border-color 0.15s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+/* Filter badges */
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.filter-group {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.1s;
+    gap: 0.35rem;
+    flex-wrap: wrap;
 }
 
-.target-item:hover { background: #f5f5f4; }
-
-.target-item input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    accent-color: var(--accent);
-    cursor: pointer;
-}
-
-.target-item .name {
-    font-weight: 500;
-}
-
-.target-item .meta {
-    color: #78716c;
+.filter-label {
     font-size: 0.8rem;
+    font-weight: 600;
+    color: #78716c;
+    margin-right: 0.15rem;
 }
 
+.filter-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #f5f5f4;
+    color: #57534e;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.filter-badge:hover {
+    background: #e7e5e4;
+}
+
+.filter-badge.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* Selection controls */
 .select-controls {
     display: flex;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .select-controls button {
@@ -210,6 +245,125 @@ button:active { transform: scale(0.98); }
 }
 
 .select-controls button:hover { background: #e7e5e4; }
+
+.select-counts {
+    color: #78716c;
+    font-size: 0.82rem;
+    margin-left: auto;
+}
+
+/* Target list — grouped by region / city */
+.target-list {
+    max-height: 28rem;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fafaf9;
+}
+
+.region-group {
+    /* no extra spacing between regions */
+}
+
+.region-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 0.4rem 0.75rem;
+    background: #e7e5e4;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #57534e;
+    border-bottom: 1px solid var(--border);
+}
+
+.city-header {
+    position: sticky;
+    top: 1.6rem;
+    z-index: 1;
+    padding: 0.25rem 0.75rem;
+    background: #f5f5f4;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #78716c;
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.target-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s;
+    border-bottom: 1px solid #f0efed;
+}
+
+.target-item:last-child {
+    border-bottom: none;
+}
+
+.target-item:hover { background: #f0efed; }
+
+.target-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.target-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.target-item .name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.net-badges {
+    display: flex;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.net-badge {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.net-narm { background: #dbeafe; color: #1e40af; }
+.net-astc { background: #dcfce7; color: #166534; }
+.net-ahs  { background: #fef3c7; color: #92400e; }
+.net-aza  { background: #fce7f3; color: #9d174d; }
+.net-acm  { background: #f3e8ff; color: #6b21a8; }
+.net-roam { background: #e0e7ff; color: #3730a3; }
+.net-marp { background: #ccfbf1; color: #115e59; }
+.net-time_travelers { background: #fee2e2; color: #991b1b; }
+
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: #a8a29e;
+    font-size: 0.9rem;
+}
 
 /* Results */
 .results {
