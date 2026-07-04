@@ -1,0 +1,12 @@
+[package]
+name = "tessera-wasm"
+description = "WASM bindings for the Tessera optimizer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+tessera-core = { path = "../tessera-core" }
+
+[lib]
+crate-type = ["cdylib", "rlib"]

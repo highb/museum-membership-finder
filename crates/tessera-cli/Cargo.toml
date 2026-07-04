@@ -1,0 +1,10 @@
+[package]
+name = "tessera-cli"
+description = "CLI interface for the Tessera reciprocal museum coverage optimizer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+tessera-core = { path = "../tessera-core" }
+serde_json = { workspace = true }

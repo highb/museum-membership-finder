@@ -1,0 +1,74 @@
+[
+  {
+    "network": "astc",
+    "admission": { "type": "free" },
+    "default_exclusion": {
+      "residence_radius_mi": 90.0,
+      "home_institution_radius_mi": 90.0,
+      "both_must_clear": true
+    }
+  },
+  {
+    "network": "narm",
+    "admission": { "type": "free" },
+    "default_exclusion": {
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
+      "both_must_clear": false
+    }
+  },
+  {
+    "network": "acm",
+    "admission": { "type": "discount", "fraction": 0.5 },
+    "default_exclusion": {
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
+      "both_must_clear": false
+    }
+  },
+  {
+    "network": "ahs",
+    "admission": { "type": "free" },
+    "default_exclusion": {
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
+      "both_must_clear": false
+    }
+  },
+  {
+    "network": "roam",
+    "admission": { "type": "free" },
+    "default_exclusion": {
+      "residence_radius_mi": 100.0,
+      "home_institution_radius_mi": 100.0,
+      "both_must_clear": false
+    }
+  },
+  {
+    "network": "marp",
+    "admission": { "type": "free" },
+    "default_exclusion": {
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
+      "both_must_clear": false
+    }
+  },
+  {
+    "network": "aza",
+    "admission": { "type": "discount", "fraction": 0.5 },
+    "default_exclusion": {
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
+      "both_must_clear": false
+    }
+  },
+  {
+    "network": "time_travelers",
+    "admission": { "type": "free" },
+    "default_exclusion": {
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
+      "both_must_clear": false
+    }
+  }
+]

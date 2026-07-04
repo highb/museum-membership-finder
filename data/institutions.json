@@ -1,0 +1,167 @@
+[
+  {
+    "id": "omsi",
+    "name": "Oregon Museum of Science and Industry",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": { "lat": 45.5085, "lon": -122.6665 },
+    "participates": [
+      { "network": "astc", "special_exhibit_restricted": true },
+      { "network": "narm", "special_exhibit_restricted": false }
+    ],
+    "provenance": "OMSI website + ASTC directory, retrieved 2026-06"
+  },
+  {
+    "id": "oregon-coast-aquarium",
+    "name": "Oregon Coast Aquarium",
+    "city": "Newport",
+    "region": "OR",
+    "country": "US",
+    "location": { "lat": 44.6368, "lon": -124.0534 },
+    "participates": [
+      { "network": "astc", "special_exhibit_restricted": false }
+    ],
+    "provenance": "ASTC directory, retrieved 2026-06"
+  },
+  {
+    "id": "lan-su-chinese-garden",
+    "name": "Lan Su Chinese Garden",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": { "lat": 45.5226, "lon": -122.6728 },
+    "participates": [
+      {
+        "network": "narm",
+        "exclusion": {
+          "home_institution_radius_mi": 15.0,
+          "both_must_clear": false
+        },
+        "special_exhibit_restricted": false
+      },
+      { "network": "ahs", "special_exhibit_restricted": false }
+    ],
+    "provenance": "NARM directory + Lan Su website, retrieved 2026-06"
+  },
+  {
+    "id": "portland-art-museum",
+    "name": "Portland Art Museum",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": { "lat": 45.5163, "lon": -122.6836 },
+    "participates": [
+      { "network": "narm", "special_exhibit_restricted": true }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "seattle-art-museum",
+    "name": "Seattle Art Museum",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": { "lat": 47.6073, "lon": -122.3380 },
+    "participates": [
+      { "network": "narm", "special_exhibit_restricted": true }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "pacific-science-center",
+    "name": "Pacific Science Center",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": { "lat": 47.6195, "lon": -122.3517 },
+    "participates": [
+      { "network": "astc", "special_exhibit_restricted": false }
+    ],
+    "provenance": "ASTC directory, retrieved 2026-06"
+  },
+  {
+    "id": "tacoma-art-museum",
+    "name": "Tacoma Art Museum",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": { "lat": 47.2451, "lon": -122.4388 },
+    "participates": [
+      { "network": "narm", "special_exhibit_restricted": false }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "maryhill-museum",
+    "name": "Maryhill Museum of Art",
+    "city": "Goldendale",
+    "region": "WA",
+    "country": "US",
+    "location": { "lat": 45.6774, "lon": -120.8520 },
+    "participates": [
+      { "network": "narm", "special_exhibit_restricted": false }
+    ],
+    "provenance": "NARM directory, retrieved 2026-06"
+  },
+  {
+    "id": "childrens-museum-of-tacoma",
+    "name": "Children's Museum of Tacoma",
+    "city": "Tacoma",
+    "region": "WA",
+    "country": "US",
+    "location": { "lat": 47.2530, "lon": -122.4424 },
+    "participates": [
+      { "network": "acm", "special_exhibit_restricted": false }
+    ],
+    "provenance": "ACM directory, retrieved 2026-06"
+  },
+  {
+    "id": "portland-childrens-museum",
+    "name": "Portland Children's Museum",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": { "lat": 45.5112, "lon": -122.7178 },
+    "participates": [
+      { "network": "acm", "special_exhibit_restricted": false }
+    ],
+    "provenance": "ACM directory, retrieved 2026-06"
+  },
+  {
+    "id": "woodland-park-zoo",
+    "name": "Woodland Park Zoo",
+    "city": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "location": { "lat": 47.6685, "lon": -122.3508 },
+    "participates": [
+      {
+        "network": "aza",
+        "admission": { "type": "discount", "fraction": 0.5 },
+        "exclusion": {
+          "home_institution_radius_mi": 50.0,
+          "both_must_clear": false
+        },
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "AZA directory, retrieved 2026-06"
+  },
+  {
+    "id": "oregon-zoo",
+    "name": "Oregon Zoo",
+    "city": "Portland",
+    "region": "OR",
+    "country": "US",
+    "location": { "lat": 45.5098, "lon": -122.7162 },
+    "participates": [
+      {
+        "network": "aza",
+        "admission": { "type": "discount", "fraction": 0.5 },
+        "special_exhibit_restricted": false
+      }
+    ],
+    "provenance": "AZA directory, retrieved 2026-06"
+  }
+]
