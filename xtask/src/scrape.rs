@@ -41,6 +41,21 @@ struct ScrapedEntry {
     region: String,
     network: String,
     website: Option<String>,
+    /// Parsed from trailing flag symbols on institution names.
+    flags: EntryFlags,
+}
+
+/// Flags parsed from network-directory symbol annotations.
+///
+/// NARM symbols: `*` = special exhibit restricted, `**` = 15-mi exclusion,
+/// `***` = both, `#` = 50-mi exclusion.
+/// ROAM symbols: `*` = special exhibit restricted, `+` = 25-mi exclusion,
+/// `‡` = specific gallery exclusion (informational).
+#[derive(Debug, Clone, Default)]
+struct EntryFlags {
+    special_exhibit_restricted: bool,
+    /// Home-institution exclusion radius in miles (e.g. 15, 25, 50).
+    exclusion_radius_mi: Option<f64>,
 }
 
 // ---------------------------------------------------------------------------
@@ -95,6 +110,86 @@ fn decode_html_entities(s: &str) -> String {
         .replace("&rsquo;", "\u{2019}")
         .replace("&lsquo;", "\u{2018}")
         .replace('\u{00a0}', " ")
+}
+
+// ---------------------------------------------------------------------------
+// Flag parsing
+// ---------------------------------------------------------------------------
+
+/// Strip trailing flag symbols from an institution name and return
+/// (clean_name, flags).
+///
+/// NARM uses: `*` (special exhibit), `**` (15-mi), `***` (15-mi + special),
+/// `#` (50-mi), `##` (specific gallery — ignored).
+/// ROAM uses: `*` (special exhibit), `+` (25-mi), `‡` (specific gallery — ignored).
+fn parse_flags(raw_name: &str, network: &str) -> (String, EntryFlags) {
+    let name = raw_name.trim();
+    let mut flags = EntryFlags::default();
+
+    // Match trailing symbols: combinations of *, +, ‡, #
+    let re = Regex::new(r"[\s]*((?:[*#+‡])+)\s*$").unwrap();
+    let clean = match re.find(name) {
+        Some(m) => {
+            let symbols = m.as_str().trim();
+            match network {
+                "narm" => {
+                    // `***` = 15-mi + special exhibit
+                    // `**`  = 15-mi exclusion
+                    // `*`   = special exhibit restricted
+                    // `##`  = specific gallery (informational, skip)
+                    // `#`   = 50-mi exclusion
+                    if symbols.contains('#') && !symbols.contains("##") {
+                        flags.exclusion_radius_mi = Some(50.0);
+                    }
+                    if symbols.contains("***") {
+                        flags.exclusion_radius_mi = Some(15.0);
+                        flags.special_exhibit_restricted = true;
+                    } else if symbols.contains("**") {
+                        flags.exclusion_radius_mi = Some(15.0);
+                    } else if symbols.contains('*') && !symbols.contains("**") {
+                        flags.special_exhibit_restricted = true;
+                    }
+                }
+                "roam" => {
+                    // `*` = special exhibit restricted
+                    // `+` = 25-mi exclusion from home institution
+                    // `‡` = specific gallery exclusion (informational)
+                    if symbols.contains('+') {
+                        flags.exclusion_radius_mi = Some(25.0);
+                    }
+                    if symbols.contains('*') {
+                        flags.special_exhibit_restricted = true;
+                    }
+                }
+                _ => {
+                    // Other networks: `*` = special exhibit restricted
+                    if symbols.contains('*') {
+                        flags.special_exhibit_restricted = true;
+                    }
+                }
+            }
+            name[..m.start()].trim().to_string()
+        }
+        None => name.to_string(),
+    };
+
+    (clean, flags)
+}
+
+/// Build a `Participation` from network + parsed flags.
+fn participation_from_flags(network: Network, flags: &EntryFlags) -> Participation {
+    let exclusion = flags.exclusion_radius_mi.map(|mi| ExclusionRule {
+        residence_radius_mi: None,
+        home_institution_radius_mi: Some(mi),
+        both_must_clear: false,
+    });
+
+    Participation {
+        network,
+        admission: None,
+        exclusion,
+        special_exhibit_restricted: flags.special_exhibit_restricted,
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -289,12 +384,14 @@ fn scrape_source(
         match parse_city_state(city_state) {
             Some((city, region)) => {
                 if region.eq_ignore_ascii_case(expected_region) {
+                    let (clean_name, flags) = parse_flags(name, network);
                     entries.push(ScrapedEntry {
-                        name: name.clone(),
+                        name: clean_name,
                         city,
                         region: region.to_uppercase(),
                         network: network.to_string(),
                         website: url.clone(),
+                        flags,
                     });
                 } else {
                     warnings.push(format!(
@@ -396,16 +493,15 @@ fn find_match(entry: &ScrapedEntry, institutions: &[Institution]) -> Option<usiz
     None
 }
 
-fn ensure_network_participation(institution: &mut Institution, network: Network) -> bool {
+fn ensure_network_participation(
+    institution: &mut Institution,
+    network: Network,
+    flags: &EntryFlags,
+) -> bool {
     if institution.participates.iter().any(|p| p.network == network) {
         return false;
     }
-    institution.participates.push(Participation {
-        network,
-        admission: None,
-        exclusion: None,
-        special_exhibit_restricted: false,
-    });
+    institution.participates.push(participation_from_flags(network, flags));
     true
 }
 
@@ -485,7 +581,7 @@ pub fn run(args: ScrapeArgs) -> Result<()> {
 
         match find_match(entry, &institutions) {
             Some(idx) => {
-                if ensure_network_participation(&mut institutions[idx], network) {
+                if ensure_network_participation(&mut institutions[idx], network, &entry.flags) {
                     updated_count += 1;
                     if args.dry_run {
                         println!(
@@ -535,12 +631,7 @@ pub fn run(args: ScrapeArgs) -> Result<()> {
                     location,
                     website: entry.website.clone(),
                     institution_type: InstitutionType::Specialty, // default; classify manually
-                    participates: vec![Participation {
-                        network,
-                        admission: None,
-                        exclusion: None,
-                        special_exhibit_restricted: false,
-                    }],
+                    participates: vec![participation_from_flags(network, &entry.flags)],
                     provenance,
                 };
 
@@ -693,6 +784,7 @@ mod tests {
             region: "OR".into(),
             network: "narm".into(),
             website: None,
+            flags: EntryFlags::default(),
         };
         assert_eq!(find_match(&entry, &institutions), Some(0));
     }
@@ -717,6 +809,7 @@ mod tests {
             region: "OR".into(),
             network: "narm".into(),
             website: None,
+            flags: EntryFlags::default(),
         };
         assert_eq!(find_match(&entry, &institutions), Some(0));
     }
@@ -741,9 +834,66 @@ mod tests {
             region: "WA".into(),
             network: "astc".into(),
             website: None,
+            flags: EntryFlags::default(),
         };
         // "the reach" vs "reach museum" - only 1 meaningful word overlap ("reach"),
         // so this should NOT match (threshold is 2).
         assert_eq!(find_match(&entry, &institutions), None);
+    }
+
+    #[test]
+    fn test_parse_flags_narm_star() {
+        let (name, flags) = parse_flags("Portland Art Museum *", "narm");
+        assert_eq!(name, "Portland Art Museum");
+        assert!(flags.special_exhibit_restricted);
+        assert!(flags.exclusion_radius_mi.is_none());
+    }
+
+    #[test]
+    fn test_parse_flags_narm_double_star() {
+        let (name, flags) = parse_flags("Lan Su Chinese Garden **", "narm");
+        assert_eq!(name, "Lan Su Chinese Garden");
+        assert!(!flags.special_exhibit_restricted);
+        assert_eq!(flags.exclusion_radius_mi, Some(15.0));
+    }
+
+    #[test]
+    fn test_parse_flags_narm_triple_star() {
+        let (name, flags) = parse_flags("Some Museum ***", "narm");
+        assert_eq!(name, "Some Museum");
+        assert!(flags.special_exhibit_restricted);
+        assert_eq!(flags.exclusion_radius_mi, Some(15.0));
+    }
+
+    #[test]
+    fn test_parse_flags_narm_hash() {
+        let (name, flags) = parse_flags("Big Museum #", "narm");
+        assert_eq!(name, "Big Museum");
+        assert!(!flags.special_exhibit_restricted);
+        assert_eq!(flags.exclusion_radius_mi, Some(50.0));
+    }
+
+    #[test]
+    fn test_parse_flags_roam_plus() {
+        let (name, flags) = parse_flags("Walters Art Museum +", "roam");
+        assert_eq!(name, "Walters Art Museum");
+        assert!(!flags.special_exhibit_restricted);
+        assert_eq!(flags.exclusion_radius_mi, Some(25.0));
+    }
+
+    #[test]
+    fn test_parse_flags_roam_star_plus() {
+        let (name, flags) = parse_flags("Some Gallery *+", "roam");
+        assert_eq!(name, "Some Gallery");
+        assert!(flags.special_exhibit_restricted);
+        assert_eq!(flags.exclusion_radius_mi, Some(25.0));
+    }
+
+    #[test]
+    fn test_parse_flags_no_flags() {
+        let (name, flags) = parse_flags("Clean Museum Name", "roam");
+        assert_eq!(name, "Clean Museum Name");
+        assert!(!flags.special_exhibit_restricted);
+        assert!(flags.exclusion_radius_mi.is_none());
     }
 }

@@ -24,7 +24,9 @@ pub struct AddInstitutionArgs {
     lon: f64,
     #[arg(long)]
     provenance: String,
-    /// Network participation, repeatable. Format: `astc` or `narm:excl=15` or `aza:discount=0.5`
+    /// Network participation, repeatable.
+    /// Format: `astc` or `narm:excl=15` or `aza:discount=0.5` or `roam:plus`
+    /// The `plus` shorthand sets the ROAM 25-mi home-institution exclusion.
     #[arg(long = "network", num_args = 1)]
     networks: Vec<String>,
 }
@@ -35,13 +37,28 @@ fn parse_network_enum(s: &str) -> Result<Network> {
 }
 
 fn parse_participation(spec: &str) -> Result<Participation> {
-    // Format: network or network:key=val:key=val
+    // Format: network or network:key=val:key=val or network:plus
     let parts: Vec<&str> = spec.split(':').collect();
     let network = parse_network_enum(parts[0])?;
     let mut admission = None;
     let mut exclusion = None;
+    let mut special_exhibit_restricted = false;
 
     for &kv in &parts[1..] {
+        // Handle bare flags (no '=') like `plus` or `special`
+        if !kv.contains('=') {
+            match kv {
+                "plus" => {
+                    // ROAM '+' flag: 25-mi home-institution exclusion
+                    exclusion = Some(ExclusionRule::ROAM_25MI);
+                }
+                "special" => {
+                    special_exhibit_restricted = true;
+                }
+                _ => anyhow::bail!("unknown bare flag '{kv}' in '{spec}'"),
+            }
+            continue;
+        }
         let (k, v) = kv.split_once('=')
             .with_context(|| format!("bad key=value in '{spec}'"))?;
         match k {
@@ -65,7 +82,7 @@ fn parse_participation(spec: &str) -> Result<Participation> {
         network,
         admission,
         exclusion,
-        special_exhibit_restricted: false,
+        special_exhibit_restricted,
     })
 }
 
