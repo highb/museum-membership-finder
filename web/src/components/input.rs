@@ -417,20 +417,22 @@ pub fn InputPanel(
                         </div>
                     }.into_any()
                 } else {
-                    // Map view — only show filtered institutions
-                    let vis = filtered_indices();
-                    let map_institutions: Vec<MapInstitution> = rows.with_value(|rows| {
-                        vis.iter().map(|&idx| {
-                            let r = &rows[idx];
-                            MapInstitution {
-                                id: r.id.clone(),
-                                name: r.name.clone(),
-                                lat: r.lat,
-                                lon: r.lon,
-                                networks: r.networks.clone(),
-                                global_index: idx,
-                            }
-                        }).collect()
+                    // Map view — derive filtered institutions as a signal
+                    let map_institutions = Signal::derive(move || {
+                        let vis = filtered_indices();
+                        rows.with_value(|rows| {
+                            vis.iter().map(|&idx| {
+                                let r = &rows[idx];
+                                MapInstitution {
+                                    id: r.id.clone(),
+                                    name: r.name.clone(),
+                                    lat: r.lat,
+                                    lon: r.lon,
+                                    networks: r.networks.clone(),
+                                    global_index: idx,
+                                }
+                            }).collect()
+                        })
                     });
                     view! {
                         <MapView
