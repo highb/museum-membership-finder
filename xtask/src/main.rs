@@ -1,5 +1,6 @@
 mod add;
 mod scrape;
+mod scrapers;
 mod validate;
 
 use clap::{Parser, Subcommand};
