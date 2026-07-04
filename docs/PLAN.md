@@ -151,11 +151,16 @@ tessera/
 - No hand-written JS — Rust all the way down
 - 59 tests still green
 
-### Cycle 5 — Static deploy + portfolio embed
+### Cycle 5 — Static deploy + portfolio embed ⏭️ (skipped)
 - GitHub Actions → Pages/CF; embeddable widget; README narrative
 
-### Cycle 6 — (Stretch) Ingest pipeline
-- `cargo xtask ingest` command; schema validation; idempotent
+### Cycle 6 — Ingest pipeline ✅
+- `cargo xtask validate` — loads all JSON, checks referential integrity, coordinates, provenance
+- `cargo xtask add-institution` — flag-driven, idempotent, sorted output
+- `cargo xtask add-membership` — flag-driven, idempotent, sorted output
+- `cargo xtask add-zips` — CSV import, merge into region file
+- `.cargo/config.toml` alias so `cargo xtask` works
+- 8 validation tests (unit + real-data); 67 total tests green
 
 ## Non-goals & guardrails
 
