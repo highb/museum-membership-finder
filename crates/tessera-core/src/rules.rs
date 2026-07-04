@@ -599,17 +599,24 @@ mod tests {
             );
         }
 
-        // ASTC: only Pacific Science Center should be eligible (Seattle, ~145 mi)
+        // ASTC: Pacific Science Center + other distant ASTC institutions should be
+        // eligible (>90 mi from both Aloha residence and OMSI home institution).
+        // Oregon Coast Aquarium (~83 mi from residence) and nearby OMSI/Gilbert House
+        // are excluded by the both_must_clear 90-mi rule.
         let astc_eligible: Vec<_> = results
             .iter()
             .filter(|r| r.network == Network::Astc)
             .collect();
-        assert_eq!(
-            astc_eligible.len(),
-            1,
-            "Only Pacific Science Center should be ASTC-eligible"
+        let astc_ids: Vec<&str> = astc_eligible.iter().map(|r| r.institution_id.as_str()).collect();
+        assert!(
+            !astc_eligible.is_empty(),
+            "at least one ASTC institution should be eligible (>90mi from both residence and home), got 0"
         );
-        assert_eq!(astc_eligible[0].institution_id, "pacific-science-center");
+        assert!(astc_ids.contains(&"pacific-science-center"));
+        // Oregon Coast Aquarium should NOT be eligible (~83 mi from Aloha)
+        assert!(!astc_ids.contains(&"oregon-coast-aquarium"));
+        // OMSI itself is excluded (0 mi from home)
+        assert!(!astc_ids.contains(&"omsi"));
 
         // NARM: should include Seattle-area + Maryhill (distant), exclude
         // Lan Su (15mi flag) and Portland-area NARM with no exclusion
