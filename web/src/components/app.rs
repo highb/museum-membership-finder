@@ -6,6 +6,54 @@ use crate::data;
 use tessera_core::model::*;
 use tessera_core::solve;
 
+#[component]
+fn DarkModeToggle() -> impl IntoView {
+    // Read initial preference from localStorage
+    let initial_dark = web_sys::window()
+        .and_then(|w| w.local_storage().ok())
+        .flatten()
+        .and_then(|storage| storage.get_item("dark-mode").ok())
+        .flatten()
+        .map(|v| v == "true")
+        .unwrap_or(false);
+
+    let (is_dark, set_is_dark) = signal(initial_dark);
+
+    // Apply dark mode class on mount and when toggled
+    Effect::new(move |_| {
+        if let Some(window) = web_sys::window() {
+            if let Some(document) = window.document() {
+                if let Some(body) = document.body() {
+                    if is_dark.get() {
+                        let _ = body.class_list().add_1("dark");
+                    } else {
+                        let _ = body.class_list().remove_1("dark");
+                    }
+                }
+            }
+            // Save to localStorage
+            if let Ok(Some(storage)) = window.local_storage() {
+                let _ = storage.set_item("dark-mode", if is_dark.get() { "true" } else { "false" });
+            }
+        }
+    });
+
+    let toggle = move |_| {
+        set_is_dark.update(|v| *v = !*v);
+    };
+
+    view! {
+        <div class="header-badges">
+            <div class="privacy-badge">
+                "\u{1f512} Your location never leaves this browser"
+            </div>
+            <button class="dark-mode-toggle" on:click=toggle title="Toggle dark mode">
+                {move || if is_dark.get() { "\u{2600}\u{fe0f}" } else { "\u{1f319}" }}
+            </button>
+        </div>
+    }
+}
+
 /// Solver output passed from input → results.
 #[derive(Clone, Debug)]
 pub struct SolverOutput {
@@ -23,13 +71,13 @@ pub fn App() -> impl IntoView {
     let dataset = data::load_dataset();
     let zips = data::load_zips();
 
-    // All institutions for target selection
-    let institutions: Vec<(String, String, String, String, Option<String>)> = dataset
+    // All institutions for target selection (now with lat/lon)
+    let institutions: Vec<(String, String, String, String, Option<String>, f64, f64)> = dataset
         .institutions
         .iter()
         .map(|i| {
             let nets: Vec<String> = i.participates.iter().map(|p| p.network.to_string()).collect();
-            (i.id.clone(), i.name.clone(), format!("{}, {}", i.city, i.region), nets.join(", "), i.website.clone())
+            (i.id.clone(), i.name.clone(), format!("{}, {}", i.city, i.region), nets.join(", "), i.website.clone(), i.location.lat, i.location.lon)
         })
         .collect();
 
@@ -88,9 +136,7 @@ pub fn App() -> impl IntoView {
                 <p class="subtitle">
                     "Reciprocal museum coverage optimizer \u{2014} find the cheapest memberships that unlock the most free visits."
                 </p>
-                <div class="privacy-badge">
-                    "\u{1f512} Your location never leaves this browser"
-                </div>
+                <DarkModeToggle />
             </header>
 
             <InputPanel institutions=institutions on_solve=on_solve />
