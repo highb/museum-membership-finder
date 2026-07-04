@@ -81,7 +81,7 @@ Datalog (Ascent). Per-network encoding:
 |---|---|---|
 | ASTC | Free | 90 mi from residence **OR** home institution (both must clear) |
 | NARM | Free | per-institution: `**` = 15 mi; `#` = 50 mi; else none |
-| ROAM | Free | ~100 mi (configurable) |
+| ROAM | Free | per-institution: `+` = 25 mi from home institution; else none |
 | AHS | Free/disc | per-institution 90-mi flag |
 | MARP | Free | per-institution if any |
 | ACM | **50% off**, ≤6 people | none |
@@ -176,6 +176,13 @@ tessera/
 
 ## Open questions
 
-1. **ROAM distance rule** — network-level 100 mi vs. per-institution? Model configurable.
+1. ~~**ROAM distance rule**~~ — **Resolved.** ROAM has no network-level default
+   distance rule. Per the official ROAM by-laws (§5.3.1.2), the `+` flag is a
+   per-institution opt-in restriction: "ROAM privileges do not extend to other
+   institutions members within a 25 mile (40 km) radius." This is measured
+   from the home institution only (not residence). The previous 100-mi
+   network-wide default was based on informal secondary sources and has been
+   corrected. Model: `default_exclusion = NONE`; institutions with the `+`
+   flag get `ExclusionRule::ROAM_25MI` as a participation-level override.
 2. **Data sourcing method** — confirm curated-fact-table approach before any ingestion.
-3. **Styling** — plain CSS or `stylist`? Decide in Cycle 4.
+3. ~~**Styling**~~ — **Resolved.** Plain CSS (Cycle 4).

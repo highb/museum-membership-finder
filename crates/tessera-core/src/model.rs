@@ -121,6 +121,15 @@ impl ExclusionRule {
         home_institution_radius_mi: Some(90.0),
         both_must_clear: true,
     };
+
+    /// ROAM '+' flag: 25-mile radius from home institution only.
+    /// Per ROAM by-laws §5.3.1.2, this is an opt-in per-institution
+    /// restriction — there is no network-level default distance rule.
+    pub const ROAM_25MI: ExclusionRule = ExclusionRule {
+        residence_radius_mi: None,
+        home_institution_radius_mi: Some(25.0),
+        both_must_clear: false,
+    };
 }
 
 // ---------------------------------------------------------------------------
@@ -151,7 +160,8 @@ pub struct Participation {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub admission: Option<Admission>,
 
-    /// Override the network-default exclusion rule (e.g. NARM 15/50 mi flags).
+    /// Override the network-default exclusion rule (e.g. NARM `**`/`#` 15/50 mi
+    /// flags, ROAM `+` 25 mi flag).
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub exclusion: Option<ExclusionRule>,
 
@@ -390,6 +400,11 @@ mod tests {
         assert_eq!(astc.residence_radius_mi, Some(90.0));
         assert_eq!(astc.home_institution_radius_mi, Some(90.0));
         assert!(astc.both_must_clear);
+
+        let roam = ExclusionRule::ROAM_25MI;
+        assert!(roam.residence_radius_mi.is_none());
+        assert_eq!(roam.home_institution_radius_mi, Some(25.0));
+        assert!(!roam.both_must_clear);
     }
 
     #[test]

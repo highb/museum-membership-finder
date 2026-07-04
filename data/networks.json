@@ -39,8 +39,8 @@
     "network": "roam",
     "admission": { "type": "free" },
     "default_exclusion": {
-      "residence_radius_mi": 100.0,
-      "home_institution_radius_mi": 100.0,
+      "residence_radius_mi": null,
+      "home_institution_radius_mi": null,
       "both_must_clear": false
     }
   },
