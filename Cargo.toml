@@ -5,6 +5,7 @@ members = [
     "crates/tessera-cli",
     "crates/tessera-wasm",
     "web",
+    "xtask",
 ]
 
 [workspace.package]
