@@ -121,10 +121,12 @@ fn init_leaflet_map(
         &js_sys::Array::of2(&JsValue::from_str(&container_id), &map_options),
     )?;
 
-    // Detect dark mode
+    // Detect dark mode (class is on <html>)
     let document = window.document().ok_or("no document")?;
-    let body = document.body().ok_or("no body")?;
-    let is_dark = body.class_list().contains("dark");
+    let is_dark = document
+        .document_element()
+        .map(|el| el.class_list().contains("dark"))
+        .unwrap_or(false);
 
     let tile_url = if is_dark {
         "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"

@@ -8,37 +8,53 @@ use tessera_core::solve;
 
 #[component]
 fn DarkModeToggle() -> impl IntoView {
-    // Read initial preference from localStorage
+    // Determine initial state: localStorage > system preference > light
     let initial_dark = web_sys::window()
-        .and_then(|w| w.local_storage().ok())
-        .flatten()
-        .and_then(|storage| storage.get_item("dark-mode").ok())
-        .flatten()
-        .map(|v| v == "true")
+        .map(|w| {
+            // Check localStorage first
+            if let Ok(Some(storage)) = w.local_storage() {
+                if let Ok(Some(val)) = storage.get_item("dark-mode") {
+                    return val == "true";
+                }
+            }
+            // Fall back to system preference
+            w.match_media("(prefers-color-scheme: dark)")
+                .ok()
+                .flatten()
+                .map(|mq| mq.matches())
+                .unwrap_or(false)
+        })
         .unwrap_or(false);
 
     let (is_dark, set_is_dark) = signal(initial_dark);
+    // Track whether user has explicitly toggled (don't write to localStorage on init)
+    let (user_toggled, set_user_toggled) = signal(false);
 
-    // Apply dark mode class on mount and when toggled
+    // Apply dark mode class to <html> element on mount and when toggled
     Effect::new(move |_| {
+        let dark = is_dark.get();
+        let toggled = user_toggled.get();
         if let Some(window) = web_sys::window() {
             if let Some(document) = window.document() {
-                if let Some(body) = document.body() {
-                    if is_dark.get() {
-                        let _ = body.class_list().add_1("dark");
+                if let Some(el) = document.document_element() {
+                    if dark {
+                        let _ = el.class_list().add_1("dark");
                     } else {
-                        let _ = body.class_list().remove_1("dark");
+                        let _ = el.class_list().remove_1("dark");
                     }
                 }
             }
-            // Save to localStorage
-            if let Ok(Some(storage)) = window.local_storage() {
-                let _ = storage.set_item("dark-mode", if is_dark.get() { "true" } else { "false" });
+            // Only persist to localStorage after explicit user toggle
+            if toggled {
+                if let Ok(Some(storage)) = window.local_storage() {
+                    let _ = storage.set_item("dark-mode", if dark { "true" } else { "false" });
+                }
             }
         }
     });
 
     let toggle = move |_| {
+        set_user_toggled.set(true);
         set_is_dark.update(|v| *v = !*v);
     };
 
