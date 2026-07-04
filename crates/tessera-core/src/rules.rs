@@ -461,11 +461,11 @@ mod tests {
     #[test]
     fn acm_eligible_but_discounted() {
         let ds = load_fixture();
-        let portland = LatLon::new(45.5152, -122.6784);
+        let tacoma = LatLon::new(47.2529, -122.4443);
         let user = User {
-            residence: portland,
+            residence: tacoma,
             held: vec![MembershipRef {
-                institution_id: "portland-childrens-museum".into(),
+                institution_id: "childrens-museum-of-tacoma".into(),
                 tier: "Family".into(),
             }],
         };
@@ -474,10 +474,10 @@ mod tests {
             &user,
             &ds,
             &[Network::Acm],
-            Some("portland-childrens-museum"),
+            Some("childrens-museum-of-tacoma"),
         );
 
-        // Children's Museum of Tacoma should be ACM-eligible with discount
+        // Home institution should be ACM-eligible with discount
         let tacoma_cm = results.iter().find(|r| {
             r.institution_id == "childrens-museum-of-tacoma" && r.network == Network::Acm
         });
@@ -496,17 +496,17 @@ mod tests {
         }
     }
 
-    /// Portland Children's Museum should be ACM-eligible for itself (ACM has
-    /// no exclusion rule) — but it's the home institution, which is fine
-    /// because ACM's default_exclusion has no radius.
+    /// Children's Museum of Tacoma should be ACM-eligible for itself (ACM has
+    /// no exclusion rule) — the home institution is fine because ACM's
+    /// default_exclusion has no radius.
     #[test]
     fn acm_no_exclusion_allows_home() {
         let ds = load_fixture();
-        let portland = LatLon::new(45.5152, -122.6784);
+        let tacoma = LatLon::new(47.2529, -122.4443);
         let user = User {
-            residence: portland,
+            residence: tacoma,
             held: vec![MembershipRef {
-                institution_id: "portland-childrens-museum".into(),
+                institution_id: "childrens-museum-of-tacoma".into(),
                 tier: "Family".into(),
             }],
         };
@@ -515,15 +515,15 @@ mod tests {
             &user,
             &ds,
             &[Network::Acm],
-            Some("portland-childrens-museum"),
+            Some("childrens-museum-of-tacoma"),
         );
 
-        let pcm = results.iter().find(|r| {
-            r.institution_id == "portland-childrens-museum" && r.network == Network::Acm
+        let tcm = results.iter().find(|r| {
+            r.institution_id == "childrens-museum-of-tacoma" && r.network == Network::Acm
         });
         assert!(
-            pcm.is_some(),
-            "Portland Children's Museum should be ACM-eligible (no exclusion rule)"
+            tcm.is_some(),
+            "Children's Museum of Tacoma should be ACM-eligible (no exclusion rule)"
         );
     }
 

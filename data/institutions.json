@@ -420,26 +420,6 @@
     "institution_type": "art"
   },
   {
-    "id": "portland-childrens-museum",
-    "name": "Portland Children's Museum",
-    "city": "Portland",
-    "region": "OR",
-    "country": "US",
-    "location": {
-      "lat": 45.5112,
-      "lon": -122.7178
-    },
-    "participates": [
-      {
-        "network": "acm",
-        "special_exhibit_restricted": false
-      }
-    ],
-    "provenance": "ACM directory, retrieved 2026-06",
-    "website": "https://www.portlandcm.org/",
-    "institution_type": "children"
-  },
-  {
     "id": "deepwood-museum-gardens",
     "name": "Deepwood Museum & Gardens",
     "city": "Salem",

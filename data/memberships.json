@@ -1,72 +1,94 @@
 [
   {
-    "institution_id": "omsi",
-    "tier": "Family Plus",
-    "price_usd": 185.0,
-    "networks_unlocked": ["astc", "narm"],
+    "institution_id": "childrens-museum-of-tacoma",
+    "tier": "Family",
+    "price_usd": 100.0,
+    "networks_unlocked": [
+      "acm"
+    ],
     "guests_included": 4
-  },
-  {
-    "institution_id": "omsi",
-    "tier": "Explorer",
-    "price_usd": 130.0,
-    "networks_unlocked": ["astc"],
-    "guests_included": 2
   },
   {
     "institution_id": "lan-su-chinese-garden",
     "tier": "Household",
     "price_usd": 100.0,
-    "networks_unlocked": ["narm", "ahs"],
+    "networks_unlocked": [
+      "narm",
+      "ahs"
+    ],
     "guests_included": 2
   },
   {
-    "institution_id": "portland-art-museum",
-    "tier": "Dual",
-    "price_usd": 160.0,
-    "networks_unlocked": ["narm"],
+    "institution_id": "omsi",
+    "tier": "Explorer",
+    "price_usd": 130.0,
+    "networks_unlocked": [
+      "astc"
+    ],
     "guests_included": 2
   },
   {
-    "institution_id": "seattle-art-museum",
-    "tier": "Household",
-    "price_usd": 150.0,
-    "networks_unlocked": ["narm"],
-    "guests_included": 4
-  },
-  {
-    "institution_id": "pacific-science-center",
-    "tier": "Family",
-    "price_usd": 145.0,
-    "networks_unlocked": ["astc"],
-    "guests_included": 4
-  },
-  {
-    "institution_id": "tacoma-art-museum",
-    "tier": "Household",
-    "price_usd": 95.0,
-    "networks_unlocked": ["narm"],
-    "guests_included": 2
-  },
-  {
-    "institution_id": "portland-childrens-museum",
-    "tier": "Family",
-    "price_usd": 120.0,
-    "networks_unlocked": ["acm"],
-    "guests_included": 4
-  },
-  {
-    "institution_id": "woodland-park-zoo",
-    "tier": "Family",
-    "price_usd": 150.0,
-    "networks_unlocked": ["aza"],
+    "institution_id": "omsi",
+    "tier": "Family Plus",
+    "price_usd": 185.0,
+    "networks_unlocked": [
+      "astc",
+      "narm"
+    ],
     "guests_included": 4
   },
   {
     "institution_id": "oregon-zoo",
     "tier": "Family",
     "price_usd": 120.0,
-    "networks_unlocked": ["aza"],
+    "networks_unlocked": [
+      "aza"
+    ],
+    "guests_included": 4
+  },
+  {
+    "institution_id": "pacific-science-center",
+    "tier": "Family",
+    "price_usd": 145.0,
+    "networks_unlocked": [
+      "astc"
+    ],
+    "guests_included": 4
+  },
+  {
+    "institution_id": "portland-art-museum",
+    "tier": "Dual",
+    "price_usd": 160.0,
+    "networks_unlocked": [
+      "narm"
+    ],
+    "guests_included": 2
+  },
+  {
+    "institution_id": "seattle-art-museum",
+    "tier": "Household",
+    "price_usd": 150.0,
+    "networks_unlocked": [
+      "narm"
+    ],
+    "guests_included": 4
+  },
+  {
+    "institution_id": "tacoma-art-museum",
+    "tier": "Household",
+    "price_usd": 95.0,
+    "networks_unlocked": [
+      "narm"
+    ],
+    "guests_included": 2
+  },
+  {
+    "institution_id": "woodland-park-zoo",
+    "tier": "Family",
+    "price_usd": 150.0,
+    "networks_unlocked": [
+      "aza"
+    ],
     "guests_included": 4
   }
 ]
