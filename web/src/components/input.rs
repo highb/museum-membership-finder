@@ -8,12 +8,13 @@ pub struct InstRow {
     pub city: String,
     pub region: String,
     pub networks: Vec<String>,
+    pub website: Option<String>,
 }
 
 #[component]
 pub fn InputPanel(
-    /// (id, name, city+region, networks)
-    institutions: Vec<(String, String, String, String)>,
+    /// (id, name, city+region, networks, website)
+    institutions: Vec<(String, String, String, String, Option<String>)>,
     on_solve: impl Fn(String, Vec<String>, Option<f64>) + 'static + Clone,
 ) -> impl IntoView {
     let (zip, set_zip) = signal("97007".to_string());
@@ -22,7 +23,7 @@ pub fn InputPanel(
     // Parse institution tuples into structured rows
     let rows: Vec<InstRow> = institutions
         .iter()
-        .map(|(id, name, city_region, nets)| {
+        .map(|(id, name, city_region, nets, website)| {
             let parts: Vec<&str> = city_region.splitn(2, ", ").collect();
             let city = parts.first().unwrap_or(&"").to_string();
             let region = parts.get(1).unwrap_or(&"").to_string();
@@ -31,7 +32,7 @@ pub fn InputPanel(
                 .filter(|s| !s.is_empty())
                 .map(|s| s.to_string())
                 .collect();
-            InstRow { id: id.clone(), name: name.clone(), city, region, networks }
+            InstRow { id: id.clone(), name: name.clone(), city, region, networks, website: website.clone() }
         })
         .collect();
 
@@ -340,6 +341,7 @@ pub fn InputPanel(
                                                     let row = &rows[idx];
                                                     let name = row.name.clone();
                                                     let nets = row.networks.join(", ");
+                                                    let website = row.website.clone();
                                                     view! {
                                                         <label class="target-item">
                                                             <input
@@ -351,11 +353,25 @@ pub fn InputPanel(
                                                             />
                                                             <span class="target-info">
                                                                 <span class="name">{name}</span>
-                                                                <span class="net-badges">
-                                                                    {nets.split(", ").map(|n| {
-                                                                        let cls = format!("net-badge net-{}", n.to_lowercase());
-                                                                        view! { <span class=cls>{n.to_string()}</span> }
-                                                                    }).collect::<Vec<_>>()}
+                                                                <span class="target-actions">
+                                                                    {website.map(|url| view! {
+                                                                        <a
+                                                                            class="website-link"
+                                                                            href=url
+                                                                            target="_blank"
+                                                                            rel="noopener noreferrer"
+                                                                            on:click=move |ev| {
+                                                                                ev.stop_propagation();
+                                                                            }
+                                                                            title="Visit website"
+                                                                        >"\u{1f517}"</a>
+                                                                    })}
+                                                                    <span class="net-badges">
+                                                                        {nets.split(", ").map(|n| {
+                                                                            let cls = format!("net-badge net-{}", n.to_lowercase());
+                                                                            view! { <span class=cls>{n.to_string()}</span> }
+                                                                        }).collect::<Vec<_>>()}
+                                                                    </span>
                                                                 </span>
                                                             </span>
                                                         </label>

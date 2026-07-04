@@ -9,6 +9,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.armuseum.com/",
     "participates": [
       {
         "network": "narm",
@@ -27,6 +28,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://sma.sou.edu/",
     "participates": [
       {
         "network": "narm",
@@ -45,6 +47,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://scienceworksmuseum.org/",
     "participates": [
       {
         "network": "astc",
@@ -63,6 +66,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.crossroads-arts.org/",
     "participates": [
       {
         "network": "narm",
@@ -81,6 +85,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://cooshistory.org/",
     "participates": [
       {
         "network": "narm",
@@ -99,6 +104,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://theartscenter.net/",
     "participates": [
       {
         "network": "narm",
@@ -117,6 +123,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://eugenesciencecenter.org/",
     "participates": [
       {
         "network": "astc",
@@ -135,6 +142,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://jsma.uoregon.edu/",
     "participates": [
       {
         "network": "narm",
@@ -153,6 +161,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://smjhouse.org/",
     "participates": [
       {
         "network": "narm",
@@ -171,6 +180,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://mnch.uoregon.edu/",
     "participates": [
       {
         "network": "narm",
@@ -193,6 +203,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.evergreenmuseum.org/",
     "participates": [
       {
         "network": "astc",
@@ -217,7 +228,8 @@
         "special_exhibit_restricted": false
       }
     ],
-    "provenance": "ASTC directory, retrieved 2026-06"
+    "provenance": "ASTC directory, retrieved 2026-06",
+    "website": "https://www.aquarium.org/"
   },
   {
     "id": "oregon-coast-council-for-the-arts",
@@ -229,6 +241,7 @@
       "lat": 44.6368,
       "lon": -124.0534
     },
+    "website": "https://coastarts.org/",
     "participates": [
       {
         "network": "narm",
@@ -247,6 +260,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://4rcc.com/",
     "participates": [
       {
         "network": "narm",
@@ -265,6 +279,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.tamastslikt.org/",
     "participates": [
       {
         "network": "narm",
@@ -283,6 +298,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://bentoncountymuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -315,7 +331,8 @@
         "special_exhibit_restricted": false
       }
     ],
-    "provenance": "NARM directory + Lan Su website, retrieved 2026-06"
+    "provenance": "NARM directory + Lan Su website, retrieved 2026-06",
+    "website": "https://lansugarden.org/"
   },
   {
     "id": "omsi",
@@ -327,6 +344,7 @@
       "lat": 45.5085,
       "lon": -122.6665
     },
+    "website": "https://omsi.edu/",
     "participates": [
       {
         "network": "astc",
@@ -359,7 +377,8 @@
         "special_exhibit_restricted": false
       }
     ],
-    "provenance": "AZA directory, retrieved 2026-06"
+    "provenance": "AZA directory, retrieved 2026-06",
+    "website": "https://www.oregonzoo.org/"
   },
   {
     "id": "portland-art-museum",
@@ -377,7 +396,8 @@
         "special_exhibit_restricted": true
       }
     ],
-    "provenance": "NARM directory, retrieved 2026-06"
+    "provenance": "NARM directory, retrieved 2026-06",
+    "website": "https://portlandartmuseum.org/"
   },
   {
     "id": "portland-childrens-museum",
@@ -395,7 +415,8 @@
         "special_exhibit_restricted": false
       }
     ],
-    "provenance": "ACM directory, retrieved 2026-06"
+    "provenance": "ACM directory, retrieved 2026-06",
+    "website": "https://www.portlandcm.org/"
   },
   {
     "id": "deepwood-museum-gardens",
@@ -407,6 +428,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://deepwoodmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -425,6 +447,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://acgilbert.org/",
     "participates": [
       {
         "network": "astc",
@@ -443,6 +466,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://willamette.edu/arts/hfma/",
     "participates": [
       {
         "network": "narm",
@@ -461,6 +485,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://snco.org/",
     "participates": [
       {
         "network": "astc",
@@ -479,6 +504,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.museumatwarmsprings.org/",
     "participates": [
       {
         "network": "narm",
@@ -497,6 +523,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://bainbridgehistory.org/",
     "participates": [
       {
         "network": "narm",
@@ -515,6 +542,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.biartmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -533,6 +561,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.bellevuearts.org/",
     "participates": [
       {
         "network": "narm",
@@ -551,6 +580,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.kidsquestmuseum.org/",
     "participates": [
       {
         "network": "astc",
@@ -569,6 +599,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.whatcommuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -587,6 +618,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://kitsapmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -605,6 +637,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://pacificnorthwestartschool.org/",
     "participates": [
       {
         "network": "narm",
@@ -623,6 +656,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.cascadiaartmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -641,6 +675,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://www.gallery-one.org/",
     "participates": [
       {
         "network": "narm",
@@ -659,6 +694,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.imaginecm.org/",
     "participates": [
       {
         "network": "astc",
@@ -677,6 +713,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.schack.org/",
     "participates": [
       {
         "network": "narm",
@@ -695,6 +732,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://pacificbonsaimuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -713,6 +751,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://sjima.org/",
     "participates": [
       {
         "network": "narm",
@@ -731,6 +770,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://harborhistorymuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -749,6 +789,7 @@
       "lat": 45.6774,
       "lon": -120.852
     },
+    "website": "https://www.maryhillmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -767,6 +808,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://columbiapacificheritagemuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -785,6 +827,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://www.co.cowlitz.wa.us/218/Museum",
     "participates": [
       {
         "network": "narm",
@@ -803,6 +846,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://www.monamuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -821,6 +865,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.qfamuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -839,6 +884,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.jansenartcenter.org/",
     "participates": [
       {
         "network": "narm",
@@ -857,6 +903,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://www.pafac.org/",
     "participates": [
       {
         "network": "narm",
@@ -875,6 +922,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.sidneymuseumandarts.com/",
     "participates": [
       {
         "network": "narm",
@@ -893,6 +941,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.jchsmuseum.org/Sites/JeffersonMuseumofArt&History.html",
     "participates": [
       {
         "network": "narm",
@@ -911,6 +960,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://museum.wsu.edu/",
     "participates": [
       {
         "network": "narm",
@@ -929,6 +979,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.palousescience.net/",
     "participates": [
       {
         "network": "astc",
@@ -947,6 +998,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://visitthereach.us/",
     "participates": [
       {
         "network": "narm",
@@ -965,6 +1017,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.visitthereach.org/",
     "participates": [
       {
         "network": "astc",
@@ -983,6 +1036,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://www.burkemuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1001,6 +1055,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://dunngardens.org/",
     "participates": [
       {
         "network": "narm",
@@ -1019,6 +1074,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://fryemuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1037,6 +1093,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://henryart.org/",
     "participates": [
       {
         "network": "narm",
@@ -1055,6 +1112,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://www.holocaustcenterseattle.org/",
     "participates": [
       {
         "network": "narm",
@@ -1073,6 +1131,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://mohai.org/",
     "participates": [
       {
         "network": "narm",
@@ -1091,6 +1150,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://www.nordicmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1109,6 +1169,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://www.naamnw.org/",
     "participates": [
       {
         "network": "narm",
@@ -1127,6 +1188,7 @@
       "lat": 47.6195,
       "lon": -122.3517
     },
+    "website": "https://www.pacificsciencecenter.org/",
     "participates": [
       {
         "network": "astc",
@@ -1151,7 +1213,8 @@
         "special_exhibit_restricted": true
       }
     ],
-    "provenance": "NARM directory, retrieved 2026-06"
+    "provenance": "NARM directory, retrieved 2026-06",
+    "website": "https://www.seattleartmuseum.org/"
   },
   {
     "id": "the-museum-of-flight",
@@ -1163,6 +1226,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://www.museumofflight.org/",
     "participates": [
       {
         "network": "astc",
@@ -1181,6 +1245,7 @@
       "lat": 47.6073,
       "lon": -122.338
     },
+    "website": "https://www.wingluke.org/",
     "participates": [
       {
         "network": "narm",
@@ -1213,7 +1278,8 @@
         "special_exhibit_restricted": false
       }
     ],
-    "provenance": "AZA directory, retrieved 2026-06"
+    "provenance": "AZA directory, retrieved 2026-06",
+    "website": "https://www.zoo.org/"
   },
   {
     "id": "mobius-science-center",
@@ -1225,6 +1291,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://mobiusspokane.org/the-bee-girl/mobius-childrens-museum",
     "participates": [
       {
         "network": "astc",
@@ -1243,6 +1310,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.northwestmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1261,6 +1329,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://www.columbiagorge.org/",
     "participates": [
       {
         "network": "narm",
@@ -1279,6 +1348,7 @@
       "lat": 47.253,
       "lon": -122.4424
     },
+    "website": "https://www.playtacoma.org/",
     "participates": [
       {
         "network": "acm",
@@ -1301,6 +1371,7 @@
       "lat": 47.2451,
       "lon": -122.4388
     },
+    "website": "https://fosswaterwayseaport.org/",
     "participates": [
       {
         "network": "narm",
@@ -1319,6 +1390,7 @@
       "lat": 47.2451,
       "lon": -122.4388
     },
+    "website": "https://www.americascarmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1337,6 +1409,7 @@
       "lat": 47.2451,
       "lon": -122.4388
     },
+    "website": "https://www.museumofglass.org/",
     "participates": [
       {
         "network": "narm",
@@ -1355,6 +1428,7 @@
       "lat": 47.2451,
       "lon": -122.4388
     },
+    "website": "https://www.tacomaartmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1373,6 +1447,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://confluencegallery.com/",
     "participates": [
       {
         "network": "narm",
@@ -1391,6 +1466,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "http://www.cchmuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1409,6 +1485,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://vashonheritagemuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1427,6 +1504,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.kirkmanhousemuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1445,6 +1523,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.wenatcheevalleymuseum.org/",
     "participates": [
       {
         "network": "narm",
@@ -1467,6 +1546,7 @@
       "lat": 0.0,
       "lon": 0.0
     },
+    "website": "https://www.yvmuseum.org/",
     "participates": [
       {
         "network": "narm",

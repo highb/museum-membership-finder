@@ -40,6 +40,7 @@ struct ScrapedEntry {
     city: String,
     region: String,
     network: String,
+    website: Option<String>,
 }
 
 // ---------------------------------------------------------------------------
@@ -129,7 +130,7 @@ fn fetch_url(url: &str) -> Result<Option<String>> {
     Ok(Some(resp.text()?))
 }
 
-fn fetch_and_parse(url: &str) -> Result<Vec<(String, String)>> {
+fn fetch_and_parse(url: &str) -> Result<Vec<(String, String, Option<String>)>> {
     match fetch_url(url)? {
         Some(body) => parse_entries(&body),
         None => anyhow::bail!("URL redirected, not a valid source"),
@@ -146,11 +147,34 @@ fn cell_text(el: &scraper::ElementRef) -> String {
     decode_html_entities(raw.trim())
 }
 
+/// Extract the href from the first <a> inside an element, if it looks like
+/// an external institution URL (not a spgfan.com internal link).
+fn cell_href(el: &scraper::ElementRef) -> Option<String> {
+    let a_sel = Selector::parse("a[href]").unwrap();
+    el.select(&a_sel).next().and_then(|a| {
+        a.value().attr("href").and_then(|href| {
+            let href = href.trim();
+            // Skip spgfan.com internal links and empty/anchor-only hrefs
+            if href.is_empty()
+                || href.starts_with('#')
+                || href.contains("spgfan.com")
+            {
+                None
+            } else if href.starts_with("http://") || href.starts_with("https://") {
+                Some(href.to_string())
+            } else {
+                None
+            }
+        })
+    })
+}
+
 /// Parse institution entries from the `.entry-content` div.
 ///
+/// Returns (city_state, name, website_url) tuples.
 /// Primary strategy: HTML table rows with two <td> cells.
 /// Fallback: tab-delimited text lines.
-fn parse_entries(html: &str) -> Result<Vec<(String, String)>> {
+fn parse_entries(html: &str) -> Result<Vec<(String, String, Option<String>)>> {
     let doc = Html::parse_document(html);
     let content_sel = Selector::parse(".entry-content").unwrap();
     let entry_content = match doc.select(&content_sel).next() {
@@ -171,8 +195,9 @@ fn parse_entries(html: &str) -> Result<Vec<(String, String)>> {
         if cells.len() >= 2 {
             let city_state = cell_text(&cells[0]);
             let name = cell_text(&cells[1]);
+            let url = cell_href(&cells[1]);
             if !city_state.is_empty() && !name.is_empty() {
-                results.push((city_state, name));
+                results.push((city_state, name, url));
             }
         }
     }
@@ -193,7 +218,7 @@ fn parse_entries(html: &str) -> Result<Vec<(String, String)>> {
                 continue;
             }
             if let Some(caps) = tab_re.captures(line) {
-                results.push((caps[1].trim().to_string(), caps[2].trim().to_string()));
+                results.push((caps[1].trim().to_string(), caps[2].trim().to_string(), None));
             }
         }
     }
@@ -220,7 +245,7 @@ fn scrape_source(
     network: &str,
     state: &str,
     expected_region: &str,
-    astc_cache: &mut Option<Vec<(String, String)>>,
+    astc_cache: &mut Option<Vec<(String, String, Option<String>)>>,
 ) -> (Vec<ScrapedEntry>, Vec<String>) {
     let url = format!("https://spgfan.com/{network}/{state}/");
     let mut entries = Vec::new();
@@ -242,7 +267,7 @@ fn scrape_source(
             });
             cached
                 .iter()
-                .filter(|(cs, _)| {
+                .filter(|(cs, _, _)| {
                     parse_city_state(cs)
                         .map(|(_, r)| r.eq_ignore_ascii_case(expected_region))
                         .unwrap_or(false)
@@ -260,7 +285,7 @@ fn scrape_source(
         warnings.push(format!("No entries found for {network}/{state}"));
     }
 
-    for (city_state, name) in &raw {
+    for (city_state, name, url) in &raw {
         match parse_city_state(city_state) {
             Some((city, region)) => {
                 if region.eq_ignore_ascii_case(expected_region) {
@@ -269,6 +294,7 @@ fn scrape_source(
                         city,
                         region: region.to_uppercase(),
                         network: network.to_string(),
+                        website: url.clone(),
                     });
                 } else {
                     warnings.push(format!(
@@ -407,7 +433,7 @@ pub fn run(args: ScrapeArgs) -> Result<()> {
     let mut all_entries: Vec<ScrapedEntry> = Vec::new();
     let mut all_warnings: Vec<String> = Vec::new();
     let mut source_counts: Vec<(String, usize)> = Vec::new();
-    let mut astc_cache: Option<Vec<(String, String)>> = None;
+    let mut astc_cache: Option<Vec<(String, String, Option<String>)>> = None;
 
     for network in &args.networks {
         for state in &args.states {
@@ -468,6 +494,12 @@ pub fn run(args: ScrapeArgs) -> Result<()> {
                         );
                     }
                 }
+                // Backfill website if not already set
+                if institutions[idx].website.is_none() {
+                    if let Some(ref url) = entry.website {
+                        institutions[idx].website = Some(url.clone());
+                    }
+                }
             }
             None => {
                 let mut slug = slugify(&entry.name);
@@ -501,6 +533,7 @@ pub fn run(args: ScrapeArgs) -> Result<()> {
                     region: entry.region.clone(),
                     country: "US".to_string(),
                     location,
+                    website: entry.website.clone(),
                     participates: vec![Participation {
                         network,
                         admission: None,
@@ -608,25 +641,35 @@ mod tests {
         let html = concat!(
             "<html><body><div class=\"entry-content\">",
             "<table><tbody>",
-            "<tr><td><a href=\"x\">Portland, OR</a></td>",
-            "<td><a href=\"y\">Portland Art Museum</a></td></tr>",
-            "<tr><td><a href=\"x\">Eugene, OR</a></td>",
-            "<td><a href=\"y\">Jordan Schnitzer Museum of Art</a></td></tr>",
+            "<tr><td><a href=\"https://www.spgfan.com/portlandor\">Portland, OR</a></td>",
+            "<td><a href=\"https://portlandartmuseum.org/\">Portland Art Museum</a></td></tr>",
+            "<tr><td><a href=\"https://www.spgfan.com/eugeneor\">Eugene, OR</a></td>",
+            "<td><a href=\"https://jsma.uoregon.edu/\">Jordan Schnitzer Museum of Art</a></td></tr>",
             "</tbody></table></div></body></html>",
         );
         let result = parse_entries(html).unwrap();
         assert_eq!(result.len(), 2);
-        assert_eq!(
-            result[0],
-            ("Portland, OR".to_string(), "Portland Art Museum".to_string())
+        assert_eq!(result[0].0, "Portland, OR");
+        assert_eq!(result[0].1, "Portland Art Museum");
+        assert_eq!(result[0].2, Some("https://portlandartmuseum.org/".to_string()));
+        assert_eq!(result[1].0, "Eugene, OR");
+        assert_eq!(result[1].1, "Jordan Schnitzer Museum of Art");
+        assert_eq!(result[1].2, Some("https://jsma.uoregon.edu/".to_string()));
+    }
+
+    #[test]
+    fn test_parse_table_filters_spgfan_urls() {
+        let html = concat!(
+            "<html><body><div class=\"entry-content\">",
+            "<table><tbody>",
+            "<tr><td><a href=\"https://www.spgfan.com/portlandor\">Portland, OR</a></td>",
+            "<td><a href=\"https://www.spgfan.com/some-museum\">Some Museum</a></td></tr>",
+            "</tbody></table></div></body></html>",
         );
-        assert_eq!(
-            result[1],
-            (
-                "Eugene, OR".to_string(),
-                "Jordan Schnitzer Museum of Art".to_string()
-            )
-        );
+        let result = parse_entries(html).unwrap();
+        assert_eq!(result.len(), 1);
+        // spgfan.com link should be filtered out
+        assert_eq!(result[0].2, None);
     }
 
     #[test]
@@ -638,6 +681,7 @@ mod tests {
             region: "OR".into(),
             country: "US".into(),
             location: LatLon::new(0.0, 0.0),
+            website: None,
             participates: vec![],
             provenance: "test".into(),
         }];
@@ -646,6 +690,7 @@ mod tests {
             city: "Portland".into(),
             region: "OR".into(),
             network: "narm".into(),
+            website: None,
         };
         assert_eq!(find_match(&entry, &institutions), Some(0));
     }
@@ -659,6 +704,7 @@ mod tests {
             region: "OR".into(),
             country: "US".into(),
             location: LatLon::new(0.0, 0.0),
+            website: None,
             participates: vec![],
             provenance: "test".into(),
         }];
@@ -667,6 +713,7 @@ mod tests {
             city: "Eugene".into(),
             region: "OR".into(),
             network: "narm".into(),
+            website: None,
         };
         assert_eq!(find_match(&entry, &institutions), Some(0));
     }
@@ -680,6 +727,7 @@ mod tests {
             region: "WA".into(),
             country: "US".into(),
             location: LatLon::new(0.0, 0.0),
+            website: None,
             participates: vec![],
             provenance: "test".into(),
         }];
@@ -688,6 +736,7 @@ mod tests {
             city: "Richland".into(),
             region: "WA".into(),
             network: "astc".into(),
+            website: None,
         };
         // "the reach" vs "reach museum" - only 1 meaningful word overlap ("reach"),
         // so this should NOT match (threshold is 2).

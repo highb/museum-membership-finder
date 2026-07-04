@@ -199,6 +199,9 @@ pub struct Institution {
     pub country: String,
     /// Location.
     pub location: LatLon,
+    /// Institution website URL.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub website: Option<String>,
     /// Networks this institution participates in.
     pub participates: Vec<Participation>,
     /// Attribution: source name + retrieval date.

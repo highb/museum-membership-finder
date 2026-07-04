@@ -24,12 +24,12 @@ pub fn App() -> impl IntoView {
     let zips = data::load_zips();
 
     // All institutions for target selection
-    let institutions: Vec<(String, String, String, String)> = dataset
+    let institutions: Vec<(String, String, String, String, Option<String>)> = dataset
         .institutions
         .iter()
         .map(|i| {
             let nets: Vec<String> = i.participates.iter().map(|p| p.network.to_string()).collect();
-            (i.id.clone(), i.name.clone(), format!("{}, {}", i.city, i.region), nets.join(", "))
+            (i.id.clone(), i.name.clone(), format!("{}, {}", i.city, i.region), nets.join(", "), i.website.clone())
         })
         .collect();
 

@@ -332,11 +332,35 @@ button:active { transform: scale(0.98); }
     text-overflow: ellipsis;
 }
 
+.target-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.website-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background 0.15s;
+    cursor: pointer;
+}
+
+.website-link:hover {
+    background: var(--accent-light);
+}
+
 .net-badges {
     display: flex;
     gap: 0.25rem;
     flex-shrink: 0;
-    margin-left: auto;
 }
 
 .net-badge {

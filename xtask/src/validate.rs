@@ -131,6 +131,7 @@ mod tests {
             region: "OR".into(),
             country: "US".into(),
             location: LatLon::new(45.5, -122.6),
+            website: None,
             participates: vec![Participation {
                 network: Network::Astc,
                 admission: None,

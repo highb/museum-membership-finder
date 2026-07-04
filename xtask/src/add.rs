@@ -84,6 +84,7 @@ pub fn add_institution(args: AddInstitutionArgs) -> Result<()> {
         region: args.region,
         country: "US".into(),
         location: LatLon::new(args.lat, args.lon),
+        website: None,
         participates,
         provenance: args.provenance,
     };
