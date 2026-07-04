@@ -1,7 +1,7 @@
 use anyhow::{Context, Result};
 use std::collections::HashSet;
 use std::path::Path;
-use tessera_core::model::{Institution, Membership, NetworkSpec};
+use tessera_core::model::{Institution, InstitutionType, Membership, NetworkSpec};
 
 /// Load and deserialize a JSON array from `data/{name}`.
 fn load_json<T: serde::de::DeserializeOwned>(name: &str) -> Result<T> {
@@ -77,6 +77,22 @@ pub fn validate(
                 ));
             }
         }
+    }
+
+    // Institution type: warn if too many are Specialty (likely unclassified)
+    let specialty: Vec<&str> = institutions
+        .iter()
+        .filter(|i| i.institution_type == InstitutionType::Specialty)
+        .map(|i| i.id.as_str())
+        .collect();
+    let threshold = institutions.len() / 10 + 1;
+    if specialty.len() > threshold {
+        errors.push(format!(
+            "{} institutions have type 'specialty' (threshold {threshold}); \
+             likely need manual classification: {:?}",
+            specialty.len(),
+            specialty
+        ));
     }
 
     // Membership checks

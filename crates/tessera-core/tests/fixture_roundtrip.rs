@@ -199,3 +199,34 @@ fn dataset_lookup_helpers() {
     let omsi_memberships = ds.memberships_for("omsi");
     assert_eq!(omsi_memberships.len(), 2, "OMSI should have 2 tiers");
 }
+
+#[test]
+fn all_institutions_have_explicit_type() {
+    let ds = load_dataset();
+    // Every institution must have a meaningful institution_type.
+    // The Specialty type is valid but should be rare — if more than 10%
+    // of institutions are Specialty, someone probably forgot to classify
+    // newly-ingested data.
+    let specialty_count = ds
+        .institutions
+        .iter()
+        .filter(|i| i.institution_type == InstitutionType::Specialty)
+        .count();
+    let threshold = ds.institutions.len() / 10 + 1;
+    assert!(
+        specialty_count <= threshold,
+        "too many institutions classified as Specialty ({specialty_count}/{} — threshold {threshold}); \
+         newly ingested institutions likely need manual classification",
+        ds.institutions.len()
+    );
+
+    // Every InstitutionType variant should appear at least once
+    // (sanity check that the enum and data stay in sync).
+    for t in InstitutionType::ALL {
+        let count = ds.institutions.iter().filter(|i| i.institution_type == *t).count();
+        assert!(
+            count > 0,
+            "no institutions of type {t:?} found — is the type still in use?"
+        );
+    }
+}
