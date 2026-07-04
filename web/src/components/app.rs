@@ -7,6 +7,93 @@ use tessera_core::model::*;
 use tessera_core::solve;
 
 #[component]
+fn AboutSection() -> impl IntoView {
+    let (open, set_open) = signal(false);
+
+    view! {
+        <div class="card about-section">
+            <button
+                class="about-toggle"
+                on:click=move |_| set_open.update(|v| *v = !*v)
+            >
+                <span class="about-toggle-icon">{move || if open.get() { "\u{25be}" } else { "\u{25b8}" }}</span>
+                " About Tessera"
+            </button>
+            {move || open.get().then(|| view! {
+                <div class="about-content">
+                    <div class="about-block">
+                        <h3>"What is this?"</h3>
+                        <p>
+                            "Tessera is a reciprocal museum membership optimizer for the Pacific Northwest. "
+                            "Many museums and cultural institutions participate in reciprocal admission networks \u{2014} "
+                            "buy a membership at one, and you get free or discounted entry at dozens of others. "
+                            "Tessera finds the cheapest combination of memberships to cover all the places you want to visit."
+                        </p>
+                    </div>
+
+                    <div class="about-block">
+                        <h3>"How to use it"</h3>
+                        <ol>
+                            <li><strong>"Enter your ZIP code"</strong>" \u{2014} this determines which exclusion zones apply (some networks block nearby institutions)."</li>
+                            <li><strong>"Select target institutions"</strong>" \u{2014} check every museum, zoo, or science center you\u{2019}d like to visit. Use the search bar, type/network filters, and map view to find them."</li>
+                            <li><strong>"Optionally set a budget"</strong>" \u{2014} if you have a spending cap, Tessera will maximize coverage within it."</li>
+                            <li><strong>"Click Optimize"</strong>" \u{2014} the solver runs entirely in your browser (your location never leaves the page) and shows the best membership picks."</li>
+                        </ol>
+                    </div>
+
+                    <div class="about-block">
+                        <h3>"Reciprocal networks"</h3>
+                        <p>"Each network has its own rules for reciprocal admission:"</p>
+                        <dl class="network-details">
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-narm">"NARM"</span></dt>
+                                <dd>"North American Reciprocal Museum Association. Members get "<strong>"free admission"</strong>" at 1,000+ museums. "<em>"No distance restrictions"</em>" \u{2014} works everywhere, including your home city."</dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-astc">"ASTC"</span></dt>
+                                <dd>"Association of Science & Technology Centers. Members get "<strong>"free admission"</strong>" at 350+ science centers. "<em>"90-mile exclusion zone"</em>": the target must be more than 90 miles from both your residence and the membership-granting institution."</dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-ahs">"AHS"</span></dt>
+                                <dd>"American Horticultural Society. Members get "<strong>"free admission"</strong>" at 350+ gardens. "<em>"No distance restrictions."</em></dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-roam">"ROAM"</span></dt>
+                                <dd>"Reciprocal Organization of Associated Museums. Members get "<strong>"free admission"</strong>" at participating museums. "<em>"100-mile exclusion zone"</em>": the target must be more than 100 miles from your residence or the home institution."</dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-acm">"ACM"</span></dt>
+                                <dd>"Association of Children\u{2019}s Museums. Members get "<strong>"50% off admission"</strong>" at 200+ children\u{2019}s museums. "<em>"No distance restrictions."</em></dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-aza">"AZA"</span></dt>
+                                <dd>"Association of Zoos & Aquariums. Members get "<strong>"50% off admission"</strong>" at 200+ zoos and aquariums. "<em>"No distance restrictions."</em></dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-marp">"MARP"</span></dt>
+                                <dd>"Mid-Atlantic Association of Museums Reciprocal Program. Members get "<strong>"free admission"</strong>" at participating museums. "<em>"No distance restrictions."</em></dd>
+                            </div>
+                            <div class="net-detail">
+                                <dt><span class="net-badge net-time_travelers">"Time Travelers"</span></dt>
+                                <dd>"A reciprocal network for history-focused institutions. Members get "<strong>"free admission"</strong>" at participating sites. "<em>"No distance restrictions."</em></dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <div class="about-block">
+                        <h3>"Privacy"</h3>
+                        <p>
+                            "Tessera runs entirely in your browser as a WebAssembly app. Your ZIP code and location are never sent to any server. "
+                            "There are no accounts, no tracking, and no cookies."
+                        </p>
+                    </div>
+                </div>
+            })}
+        </div>
+    }
+}
+
+#[component]
 fn DarkModeToggle() -> impl IntoView {
     // Determine initial state: localStorage > system preference > light
     let initial_dark = web_sys::window()
@@ -154,6 +241,8 @@ pub fn App() -> impl IntoView {
                 </p>
                 <DarkModeToggle />
             </header>
+
+            <AboutSection />
 
             <InputPanel institutions=institutions on_solve=on_solve />
 

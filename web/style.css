@@ -573,6 +573,123 @@ button:active { transform: scale(0.98); }
     margin-top: 0.5rem;
 }
 
+/* About section */
+.about-section {
+    padding: 0;
+    overflow: hidden;
+}
+
+.about-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: transparent;
+    color: var(--fg);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+}
+
+.about-toggle:hover {
+    background: #f5f5f4;
+}
+
+.about-toggle:active {
+    transform: none;
+}
+
+.about-toggle-icon {
+    font-size: 0.85rem;
+    color: #78716c;
+    width: 1em;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.about-content {
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.about-block {
+    margin-top: 1rem;
+}
+
+.about-block h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--fg);
+}
+
+.about-block p {
+    font-size: 0.875rem;
+    color: #57534e;
+    line-height: 1.6;
+}
+
+.about-block ol {
+    font-size: 0.875rem;
+    color: #57534e;
+    padding-left: 1.25rem;
+    line-height: 1.8;
+}
+
+.about-block ol li {
+    margin-bottom: 0.2rem;
+}
+
+.network-details {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.net-detail {
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.net-detail dt {
+    flex-shrink: 0;
+    min-width: 4.5rem;
+}
+
+.net-detail dd {
+    color: #57534e;
+}
+
+.net-detail em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Dark mode — about section */
+html.dark .about-toggle:hover {
+    background: #2a2a2a;
+}
+
+html.dark .about-content {
+    border-top-color: #3a3a3a;
+}
+
+html.dark .about-block p,
+html.dark .about-block ol,
+html.dark .net-detail dd {
+    color: #a8a29e;
+}
+
 /* Footer */
 .footer {
     margin-top: 2rem;
