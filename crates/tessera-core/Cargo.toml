@@ -8,6 +8,7 @@ license.workspace = true
 [dependencies]
 serde = { workspace = true }
 serde_json = { workspace = true }
+ascent = "0.8"
 
 [dev-dependencies]
 serde_json = { workspace = true }
