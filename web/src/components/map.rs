@@ -9,6 +9,8 @@ pub struct MapInstitution {
     pub lat: f64,
     pub lon: f64,
     pub networks: Vec<String>,
+    /// Original index into the full institution list (for selection state).
+    pub global_index: usize,
 }
 
 #[component]
@@ -19,8 +21,8 @@ pub fn MapView(
 ) -> impl IntoView {
     let map_container = NodeRef::<leptos::html::Div>::new();
     let institutions = StoredValue::new(institutions);
-    // Store marker JsValues so we can update their styles reactively
-    let markers_store: StoredValue<Vec<JsValue>> = StoredValue::new(Vec::new());
+    // Store marker JsValues with their global indices so we can update styles reactively
+    let markers_store: StoredValue<Vec<(usize, JsValue)>> = StoredValue::new(Vec::new());
 
     // Initialize map after mount
     Effect::new(move |_| {
@@ -55,8 +57,8 @@ pub fn MapView(
         if markers.is_empty() {
             return;
         }
-        for (idx, marker) in markers.iter().enumerate() {
-            let is_sel = sel.get(idx).copied().unwrap_or(false);
+        for (global_idx, marker) in markers.iter() {
+            let is_sel = sel.get(*global_idx).copied().unwrap_or(false);
             let color = if is_sel { "#16a34a" } else { "#2563eb" };
             let opts = js_sys::Object::new();
             let _ = js_sys::Reflect::set(
@@ -92,7 +94,7 @@ fn init_leaflet_map(
     institutions: Vec<MapInstitution>,
     selected: Signal<Vec<bool>>,
     on_toggle: impl Fn(usize) + 'static + Copy,
-) -> Result<Vec<JsValue>, JsValue> {
+) -> Result<Vec<(usize, JsValue)>, JsValue> {
     let window = web_sys::window().ok_or("no window")?;
     let l = js_sys::Reflect::get(&window, &JsValue::from_str("L"))?;
 
@@ -163,20 +165,22 @@ fn init_leaflet_map(
     let circle_marker_fn =
         js_sys::Reflect::get(&l, &JsValue::from_str("circleMarker"))?;
 
-    let mut marker_list: Vec<JsValue> = Vec::with_capacity(institutions.len());
+    let mut marker_list: Vec<(usize, JsValue)> = Vec::with_capacity(institutions.len());
 
-    for (idx, inst) in institutions.iter().enumerate() {
+    for inst in institutions.iter() {
         // Skip institutions with no coords
         if inst.lat == 0.0 && inst.lon == 0.0 {
             continue;
         }
+
+        let global_idx = inst.global_index;
 
         let latlng = js_sys::Array::of2(
             &JsValue::from_f64(inst.lat),
             &JsValue::from_f64(inst.lon),
         );
 
-        let is_selected = selected.get_untracked().get(idx).copied().unwrap_or(false);
+        let is_selected = selected.get_untracked().get(global_idx).copied().unwrap_or(false);
         let color = if is_selected { "#16a34a" } else { "#2563eb" };
 
         let marker_options = js_sys::Object::new();
@@ -234,7 +238,7 @@ fn init_leaflet_map(
         let on_click =
             js_sys::Reflect::get(&marker, &JsValue::from_str("on"))?;
         let closure = Closure::wrap(Box::new(move |_: JsValue| {
-            on_toggle(idx);
+            on_toggle(global_idx);
         }) as Box<dyn Fn(JsValue)>);
 
         js_sys::Reflect::apply(
@@ -257,7 +261,7 @@ fn init_leaflet_map(
             &js_sys::Array::of1(&map),
         )?;
 
-        marker_list.push(marker);
+        marker_list.push((global_idx, marker));
     }
 
     Ok(marker_list)

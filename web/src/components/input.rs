@@ -417,14 +417,19 @@ pub fn InputPanel(
                         </div>
                     }.into_any()
                 } else {
-                    // Map view
+                    // Map view — only show filtered institutions
+                    let vis = filtered_indices();
                     let map_institutions: Vec<MapInstitution> = rows.with_value(|rows| {
-                        rows.iter().map(|r| MapInstitution {
-                            id: r.id.clone(),
-                            name: r.name.clone(),
-                            lat: r.lat,
-                            lon: r.lon,
-                            networks: r.networks.clone(),
+                        vis.iter().map(|&idx| {
+                            let r = &rows[idx];
+                            MapInstitution {
+                                id: r.id.clone(),
+                                name: r.name.clone(),
+                                lat: r.lat,
+                                lon: r.lon,
+                                networks: r.networks.clone(),
+                                global_index: idx,
+                            }
                         }).collect()
                     });
                     view! {
