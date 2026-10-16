@@ -7,7 +7,7 @@ license.workspace = true
 
 [dependencies]
 tessera-core = { path = "../crates/tessera-core" }
-leptos = { version = "0.7", features = ["csr"] }
+leptos = { version = "0.8", features = ["csr"] }
 serde = { workspace = true }
 serde_json = { workspace = true }
 console_error_panic_hook = "0.1"
